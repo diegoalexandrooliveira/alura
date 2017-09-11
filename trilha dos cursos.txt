@@ -1,0 +1,29 @@
+Plano de Cursos Alura
+
+Curso	Carga Horária
+Curso HTTP: Entendendo a web por baixo dos panos	14h
+Curso JavaScript: Programando na linguagem da web	20h
+Curso JavaScript avançado I: ES6, orientação a objetos e padrões de projetos	12h
+Curso JavaScript Avançado II: ES6, orientação a objetos e padrões de projetos	12h
+Curso JavaScript Avançado III: ES6, orientação a objetos e padrões de projetos	12h
+Curso TypeScript parte 1: Evoluindo seu Javascript	8h
+Curso TypeScript parte 2: Mais técnicas e boas práticas	10h
+Previsão Inicio: 25/09/2017
+Previsão Fim: 10/11/2017	88h
+	
+Curso HTML5 e CSS3 I: Suas primeiras páginas da Web	32h
+Curso HTML5 e CSS3 II: Turbinando as suas páginas	40h
+Curso Web Design Responsivo: Páginas que se adaptam do mobile ao desk	10h
+Previsão Inicio: 20/11/2017
+Previsão Fim: 29/12/2017	82h
+	
+Curso Gulp: automação de tarefas front-end	10h
+Curso Sass e Compass: Descomplicando o CSS	8h
+Curso Bootstrap: criação de uma single-page responsiva	12h
+Curso Angular 2: webapps ainda mais poderosas parte 1	18h
+Curso Angular 2: webapps ainda mais poderosas parte 2	18h
+Previsão Inicio: 08/01/2018
+Previsão Fim: 09/02/2018	66h
+	
+Previsão Inicio: 25/09/2017
+Previsão Fim: 09/02/2018	236h
