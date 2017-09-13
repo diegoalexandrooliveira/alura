@@ -1,0 +1,136 @@
+// ==UserScript==
+// @name         Utilitários do JIRA
+// @namespace    http://tampermonkey.net/
+// @version      0.1
+// @description  try to take over the world!
+// @author       You
+// @match        http://jiraproducao.totvs.com.br/browse/*
+// @grant        none
+// ==/UserScript==
+
+(function() {
+    'use strict';
+    init();
+})();
+
+function init() {
+    let story = $("a[class='issue-link']")[0].attributes['data-issue-key'].value;
+    let task;
+    try{
+        task = $("a[class='issue-link']")[1].attributes['data-issue-key'].value;
+    } catch(TypeError){
+        console.log('Não existe nenhuma sub-tarefa.');
+    }
+    let divButtons = $("div[class='toolbar-split toolbar-split-left']")[0];
+    createButton('Copiar ID para commit', function() {
+        let tmpInput = document.createElement('input');
+        tmpInput.setAttribute('type', 'text');
+        divButtons.appendChild(tmpInput);
+        tmpInput.value = task + '\\' + story;
+        tmpInput.select();
+        let successful = document.execCommand('copy');
+        divButtons.removeChild(tmpInput);
+        console.log('ID copiado com sucesso!');
+    });
+
+    let taskTitle = $("#summary-val")[0].firstChild.nodeValue;
+    createButton('Copiar comentário para commit', function() {
+        let tmpInput = document.createElement('input');
+        tmpInput.setAttribute('type', 'text');
+        divButtons.appendChild(tmpInput);
+        tmpInput.value = ''+taskTitle+'';
+        tmpInput.select();
+        let successful = document.execCommand('copy');
+        divButtons.removeChild(tmpInput);
+        console.log('Texto copiado com sucesso!');
+    });
+
+    createButton('Criar How-To', function() {
+        createSubTask('VD - Video How-To', '10050');
+    });
+
+    createButton('Criar DR', function() {
+        createSubTask('DR - Documento de Referência (Manual)', '10055');
+    });
+
+    createButton('Criar DT', function() {
+        createSubTask('DT - Documento Técnico', '10063');
+    });
+
+    createButton('Criar TI', function() {
+        createSubTask('TI - Testes Integrados', '10013');
+    });
+
+    createButton('Criar Kanoah', function() {
+        createSubTask('Preparação de Cenário Kanoah', '10019');
+    });
+
+    let horas = document.createElement('input');
+    horas.setAttribute('class', 'toolbar-group pluggable-ops plugin-button');
+    horas.setAttribute('type', 'text');
+    horas.setAttribute('id', 'horasWorklog');
+    let divButtons2 = $("div[class='toolbar-split toolbar-split-left']")[0];
+    divButtons2.appendChild(horas);
+
+    createButton('Worklog', function() {
+        setTimeout(function(){
+            document.getElementById('add-hours-on-issue').click();
+            setTimeout(function() {
+                document.getElementById('time-popup').value = document.getElementById('horasWorklog').value;
+                document.getElementById('billedTime-popup').value = document.getElementById('horasWorklog').value;
+                document.getElementById('comment-popup').value = '-';
+                setTimeout(function() {
+                    document.getElementById('issue-add-button').click();
+                }, 500);
+            }, 1500);
+        }, 500);
+
+    });
+
+    let sumarioCodificacao = document.createElement('input');
+    sumarioCodificacao.setAttribute('class', 'toolbar-group pluggable-ops plugin-button');
+    sumarioCodificacao.setAttribute('type', 'text');
+    sumarioCodificacao.setAttribute('id', 'sumarioCodificacao');
+    divButtons2 = $("div[class='toolbar-split toolbar-split-left']")[0];
+    divButtons2.appendChild(sumarioCodificacao);
+    createButton('Criar codificação', function() {
+        createSubTask(document.getElementById('sumarioCodificacao').value, '10036');
+    });
+}
+
+function createButton(label, onclick) {
+    let newButton = document.createElement('input');
+    newButton.setAttribute('class', 'toolbar-group pluggable-ops plugin-button');
+    newButton.setAttribute('value', label);
+    newButton.setAttribute('type', 'button');
+    newButton.onclick = function() {
+        onclick();
+    };
+    let divButtons = $("div[class='toolbar-split toolbar-split-left']")[0];
+    divButtons.appendChild(newButton);
+}
+
+function createSubTask(text, issueType) {
+    setTimeout(function(){
+        $("#opsbar-operations_more")[0].click();
+        setTimeout(function() {
+            document.getElementById('create-subtask').click();
+            setTimeout(function() {
+                console.log('preenchendo campo sumário');
+                document.getElementById('summary').value = text;
+                setTimeout(function() {
+                    console.log('selecionando o tipo');
+                    jQuery("#issuetype").trigger("set-selection-value", issueType);
+                    setTimeout(function(){
+                        document.getElementById('create-issue-submit').click();
+                        setTimeout(function() {
+                            if($(".plugin-button").length === 0) {
+                                init();
+                            }
+                        }, 8000);
+                    }, 1000);
+                }, 500);
+            }, 3000);
+        }, 500);
+    }, 100);
+}
