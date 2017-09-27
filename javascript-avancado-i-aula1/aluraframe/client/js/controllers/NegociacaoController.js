@@ -10,23 +10,25 @@ class NegociacaoController {
   adiciona(event) {
     // expressão regular /-/g
     event.preventDefault();
-    let data = this.converteData(this._inputData.value);
-    let negociacao = new Negociacao(
-      new Date(data[0], data[1], data[2]),
-      this._inputQuantidade.value,
-      this._inputValor.value);
+    let negociacao = this.criarNegociacao(this._inputData.value, this._inputQuantidade.value, this._inputValor.value);
     console.log(negociacao);
+    this.limparCampos();
   }
 
-  converteData(data) {
-    let valores = data.split('-');
-    if (valores.length != 3) {
-      return null;
-    }
-    let retorno = [];
-    for (let i = 0; i < 3; i++) {
-      retorno.push(i != 1 ? Number(valores[i]) : Number(valores[i] - 1));
-    }
-    return retorno;
+  criarNegociacao(data, quantidade, valor) {
+    return new Negociacao(
+      new Date(...data.split('-')
+        .map((itemArray, index) => index != 1 ? Number(itemArray) : Number(itemArray) - 1)
+      ),
+      quantidade,
+      valor);
   }
+
+  limparCampos() {
+    this._inputData.value = "";
+    this._inputQuantidade.value = 1;
+    this._inputValor.value = 0;
+    this._inputData.focus();
+  }
+
 }
