@@ -1,9 +1,6 @@
-class NegociacoesView {
-  constructor(elemento) {
-    this._elemento = elemento;
-  }
+class NegociacoesView extends View {
 
-  _template(listaNegociacoes) {
+  template(listaNegociacoes) {
     return `
     <table class="table table-hover table-bordered">
     <thead>
@@ -26,12 +23,10 @@ class NegociacoesView {
     </tbody>
 
     <tfoot>
+    <td colspan="3"></td>
+    <td>${listaNegociacoes.negociacoes.reduce((total, negociacao)=> total + negociacao.volume, 0.0)}</td>
     </tfoot>
     </table>`;
   }
 
-  update(listaNegociacoes) {
-    this._elemento.innerHTML = this._template(listaNegociacoes);
-
-  }
 }
