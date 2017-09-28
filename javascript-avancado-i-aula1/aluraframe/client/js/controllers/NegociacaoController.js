@@ -5,7 +5,16 @@ class NegociacaoController {
     this._inputData = this.$("#data");
     this._inputQuantidade = this.$("#quantidade");
     this._inputValor = this.$("#valor");
-    this._listaNegociacoes = new ListaNegociacoes();
+
+    this._listaNegociacoes = new ListaNegociacoes(function(model) {
+      this._negociacoesView.update(model);
+    }.bind(this));
+
+    // estou usando bind, mas dá pra usar o Reflect.apply, ele pede a função que quero executar
+    // e qual o contexto que essa função deve ser executada
+    //  Dá pra usar a arrow function, o this da => não é dinâmico
+
+
     this._negociacoesView = new NegociacoesView(this.$("#negociacoesView"));
     this._negociacoesView.update(this._listaNegociacoes);
     this._mensagem = new Mensagem();
@@ -16,7 +25,6 @@ class NegociacaoController {
     // expressão regular /-/g
     event.preventDefault();
     this._listaNegociacoes.adiciona(this._criaNegociacao());
-    this._negociacoesView.update(this._listaNegociacoes);
     this._limparFormulario();
     this._mensagem.texto = "Negociação adicionada com sucesso";
     this._mensagemView.update(this._mensagem);
@@ -32,6 +40,12 @@ class NegociacaoController {
     this._inputQuantidade.value = 1;
     this._inputValor.value = 0.0;
     this._inputData.focus();
+  }
+
+  apaga() {
+    this._listaNegociacoes.esvazia();
+    this._mensagem.texto = "Negociações apagadas com sucesso.";
+    this._mensagemView.update(this._mensagem);
   }
 
 }
