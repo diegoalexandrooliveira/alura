@@ -5,13 +5,10 @@ class NegociacaoController {
     this._inputData = this.$("#data");
     this._inputQuantidade = this.$("#quantidade");
     this._inputValor = this.$("#valor");
-    let self = this;
 
-    this._listaNegociacoes = ProxyFactory.create(new ListaNegociacoes(), ['adiciona', 'esvazia'],
-      model => this._negociacoesView.update(model));
+    this._listaNegociacoes = new Bind(new ListaNegociacoes(), new NegociacoesView(this.$("#negociacoesView")), 'adiciona', 'esvazia');
 
-    this._negociacoesView = new NegociacoesView(this.$("#negociacoesView"));
-    this._negociacoesView.update(this._listaNegociacoes);
+    this._mensagem = new Bind(new Mensagem(), new MensagemView(this.$("#mensagemView")), 'texto');
 
     // this._listaNegociacoes = new ListaNegociacoes(function(model) {
     //   this._negociacoesView.update(model);
@@ -21,8 +18,6 @@ class NegociacaoController {
     //  Dá pra usar a arrow function, o this da => não é dinâmico
 
 
-    this._mensagem = new ProxyFactory(new Mensagem(), ['texto'], model => this._mensagemView.update(model));
-    this._mensagemView = new MensagemView(this.$("#mensagemView"));
   }
 
   adiciona(event) {
