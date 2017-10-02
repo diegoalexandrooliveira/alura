@@ -7,21 +7,11 @@ class NegociacaoController {
     this._inputValor = this.$("#valor");
     let self = this;
 
-
-    this._listaNegociacoes = new Proxy(new ListaNegociacoes(), {
-      get(target, prop, receiver) {
-        if (['adiciona', 'esvazia'].includes(prop) && typeof(target[prop]) == typeof(Function)) {
-          return function() {
-            Reflect.apply(target[prop], target, arguments);
-            self._negociacoesView.update(target);
-          }
-        } else {
-          return Reflect.get(target, prop, receiver);
-        }
-      }
-    });
+    this._listaNegociacoes = ProxyFactory.create(new ListaNegociacoes(), ['adiciona', 'esvazia'],
+      model => this._negociacoesView.update(model));
 
     this._negociacoesView = new NegociacoesView(this.$("#negociacoesView"));
+    this._negociacoesView.update(this._listaNegociacoes);
 
     // this._listaNegociacoes = new ListaNegociacoes(function(model) {
     //   this._negociacoesView.update(model);
@@ -31,15 +21,7 @@ class NegociacaoController {
     //  Dá pra usar a arrow function, o this da => não é dinâmico
 
 
-    this._mensagem = new Proxy(new Mensagem(), {
-      set: function(target, prop, value, receive) {
-        Reflect.set(target, prop, value);
-        if (prop == "texto") {
-          self._mensagemView.update(target);
-        }
-        return true;
-      }
-    });
+    this._mensagem = new ProxyFactory(new Mensagem(), ['texto'], model => this._mensagemView.update(model));
     this._mensagemView = new MensagemView(this.$("#mensagemView"));
   }
 
