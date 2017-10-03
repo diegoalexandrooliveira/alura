@@ -27,6 +27,38 @@ class NegociacaoController {
     this._mensagem.texto = "Negociação adicionada com sucesso";
   }
 
+
+  importaNegociacoes() {
+
+    let xhr = new XMLHttpRequest();
+    xhr.open("GET", "negociacoes/semana");
+
+    xhr.onreadystatechange = () => {
+      /*
+      Estados de uma requisição
+      0: requisição ainda não iniciada
+      1: conexão com o servidor estabelecida
+      2: requisição recebida
+      3: processando requisição
+      4: requisição concluída e a resposta está pronta
+      */
+      if (xhr.readyState == 4) {
+        if (xhr.status == 200) {
+          JSON.parse(xhr.responseText).map(objeto =>
+            new Negociacao(new Date(objeto.data), objeto.quantidade, objeto.valor)
+          ).forEach(negociacao => this._listaNegociacoes.adiciona(negociacao));
+          this._mensagem.texto = "Negociações importadas com sucesso.";
+        } else {
+          console.log(xhr.responseText);
+          this._mensagem.texto = "Não foi possivel recuperar as negociações.";
+        }
+      }
+    };
+
+    xhr.send();
+
+  }
+
   _criaNegociacao() {
     return new Negociacao(DateHelper.textoParaData(this._inputData.value), this._inputQuantidade.value,
       this._inputValor.value);
@@ -43,5 +75,6 @@ class NegociacaoController {
     this._listaNegociacoes.esvazia();
     this._mensagem.texto = "Negociações apagadas com sucesso.";
   }
+
 
 }
