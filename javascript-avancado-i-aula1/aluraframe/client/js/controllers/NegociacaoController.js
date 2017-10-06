@@ -32,15 +32,44 @@ class NegociacaoController {
 
     let service = new NegociacaoService();
 
-    service.obterNegociacoesDaSemana((erro, negociacoes) => {
-      if (erro) {
-        this._mensagem.texto = erro
-        return;
-      } else {
-        negociacoes.forEach(negociacao => this._listaNegociacoes.adiciona(negociacao));
+    Promise.all([service.obterNegociacoesDaSemana(), service.obterNegociacoesDaSemanaPassada(),
+        service.obterNegociacoesDaSemanaRetrasada()
+      ]).then(arrayNegociacoes => {
+        arrayNegociacoes
+          .reduce((arrayRetorno, array) => arrayRetorno.concat(array), [])
+          .forEach(negociacao => this._listaNegociacoes.adiciona(negociacao))
         this._mensagem.texto = "Negociações importadas com sucesso."
-      }
-    });
+      })
+      .catch(erro => this._mensagem.texto = erro);
+
+    // service.obterNegociacoesDaSemana()
+    // .then(negociacoes => {
+    //     negociacoes.forEach(negociacao => this._listaNegociacoes.adiciona(negociacao));
+    //     this._mensagem.texto = "Negociações importadas com sucesso.";
+    //   })
+    //   .catch(erro => this._mensagem.texto = erro);
+    // service.obterNegociacoesDaSemanaPassada()
+    // .then(negociacoes => {
+    //     negociacoes.forEach(negociacao => this._listaNegociacoes.adiciona(negociacao));
+    //     this._mensagem.texto = "Negociações importadas com sucesso.";
+    //   })
+    //   .catch(erro => this._mensagem.texto = erro);
+    // service.obterNegociacoesDaSemanaRetrasada()
+    // .then(negociacoes => {
+    //     negociacoes.forEach(negociacao => this._listaNegociacoes.adiciona(negociacao));
+    //     this._mensagem.texto = "Negociações importadas com sucesso.";
+    //   })
+    //   .catch(erro => this._mensagem.texto = erro);
+
+    // service.obterNegociacoesDaSemana((erro, negociacoes) => {
+    //   if (erro) {
+    //     this._mensagem.texto = erro
+    //     return;
+    //   } else {
+    //     negociacoes.forEach(negociacao => this._listaNegociacoes.adiciona(negociacao));
+    //     this._mensagem.texto = "Negociações importadas com sucesso."
+    //   }
+    // });
 
   }
 
