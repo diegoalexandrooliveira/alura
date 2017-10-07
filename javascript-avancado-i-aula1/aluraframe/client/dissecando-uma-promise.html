@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Dissecando uma promise</title>
+</head>
+
+<body>
+  <script>
+    let promise = new Promise((resolve, reject) => {
+      console.log(resolve);
+      setTimeout(() => reject('HOUVE PROBLEMAS'), 5000);
+    });
+
+    promise
+      .then(resultado => console.log(resultado))
+      .catch(erro => console.log(erro));
+  </script>
+</body>
+
+</html>
