@@ -28,4 +28,17 @@ class HttpService {
     });
   }
 
+  post(url, dado) {
+
+
+    return new Promise((resolve, reject) => {
+
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+    });
+
+}
+
 }

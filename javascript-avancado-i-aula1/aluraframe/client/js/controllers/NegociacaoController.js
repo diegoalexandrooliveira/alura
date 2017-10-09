@@ -6,9 +6,11 @@ class NegociacaoController {
     this._inputQuantidade = this.$("#quantidade");
     this._inputValor = this.$("#valor");
 
-    this._listaNegociacoes = new Bind(new ListaNegociacoes(), new NegociacoesView(this.$("#negociacoesView")), 'adiciona', 'esvazia');
+    this._listaNegociacoes = new Bind(new ListaNegociacoes(), new NegociacoesView(this.$("#negociacoesView")), 'adiciona', 'esvazia', 'ordena', 'inverteOrdem');
 
     this._mensagem = new Bind(new Mensagem(), new MensagemView(this.$("#mensagemView")), 'texto');
+
+    this._ordemAtual = '';
 
     // this._listaNegociacoes = new ListaNegociacoes(function(model) {
     //   this._negociacoesView.update(model);
@@ -95,6 +97,15 @@ class NegociacaoController {
   apaga() {
     this._listaNegociacoes.esvazia();
     this._mensagem.texto = "Negociações apagadas com sucesso.";
+  }
+
+  ordena(coluna) {
+    if(coluna == this._ordemAtual){
+      this._listaNegociacoes.inverteOrdem();
+    } else {
+      this._listaNegociacoes.ordena((a, b) => a[coluna] - b[coluna]);
+    }
+    this._ordemAtual = coluna;
   }
 
 
