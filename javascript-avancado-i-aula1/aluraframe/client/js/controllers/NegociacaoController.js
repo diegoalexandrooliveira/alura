@@ -12,6 +12,20 @@ class NegociacaoController {
 
     this._ordemAtual = '';
 
+    // ConnectionFactory.getConnection()
+    //   .then(connection => {
+    //     new NegociacaoDAO(connection)
+    //       .listaTodos()
+    //       .then(negociacoes => negociacoes.forEach(negociacao => this._listaNegociacoes.adiciona(negociacao)));
+    //   });
+
+    ConnectionFactory.getConnection()
+      .then(connection => new NegociacaoDAO(connection))
+      .then(dao => dao.listaTodos())
+      .then(negociacoes =>
+        negociacoes.forEach(negociacao =>
+          this._listaNegociacoes.adiciona(negociacao)));
+
     // this._listaNegociacoes = new ListaNegociacoes(function(model) {
     //   this._negociacoesView.update(model);
     // }.bind(this));
@@ -24,9 +38,19 @@ class NegociacaoController {
 
   adiciona(event) {
     event.preventDefault();
-    this._listaNegociacoes.adiciona(this._criaNegociacao());
-    this._limparFormulario();
-    this._mensagem.texto = "Negociação adicionada com sucesso";
+    ConnectionFactory
+      .getConnection()
+      .then(connection => {
+        let negociacao = this._criaNegociacao();
+        new NegociacaoDAO(connection)
+          .adiciona(negociacao)
+          .then(() => {
+            this._listaNegociacoes.adiciona(this._criaNegociacao());
+            this._limparFormulario();
+            this._mensagem.texto = "Negociação adicionada com sucesso";
+          });
+      })
+      .catch(erro => this._mensagem = erro);
   }
 
 
@@ -100,7 +124,7 @@ class NegociacaoController {
   }
 
   ordena(coluna) {
-    if(coluna == this._ordemAtual){
+    if (coluna == this._ordemAtual) {
       this._listaNegociacoes.inverteOrdem();
     } else {
       this._listaNegociacoes.ordena((a, b) => a[coluna] - b[coluna]);
