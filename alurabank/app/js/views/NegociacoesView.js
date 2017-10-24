@@ -1,6 +1,9 @@
-class NegociacoesView extends View {
-    template(model) {
-        return `
+var Views;
+(function (Views) {
+    var View = Views.View;
+    class NegociacoesView extends View {
+        template(model) {
+            return `
     <table class="table table-hover table-bordered">
       <thead>
         <tr>
@@ -13,7 +16,7 @@ class NegociacoesView extends View {
 
       <tbody>
         ${model.paraArray()
-            .map(negociacao => `
+                .map(negociacao => `
               <tr>
                 <td>${negociacao.data.getDate()}/${negociacao.data.getMonth() + 1}/${negociacao.data.getFullYear()}</td>
                 <td>${negociacao.quantidade}</td>
@@ -27,5 +30,7 @@ class NegociacoesView extends View {
       </tfoot>
       </table>
     `;
+        }
     }
-}
+    Views.NegociacoesView = NegociacoesView;
+})(Views || (Views = {}));
