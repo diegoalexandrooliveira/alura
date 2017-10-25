@@ -41,14 +41,11 @@
   <div id="negociacoesView"></div>
   <!-- npm install @types/jquery@2.0.42 --save-dev -->
   <script src="lib/jquery.min.js" charset="utf-8"></script>
-  <script src="js/controllers/NegociacaoController.js" charset="utf-8"></script>
-  <script src="js/models/Negociacao.js" charset="utf-8"></script>
-  <script src="js/models/Negociacoes.js" charset="utf-8"></script>
-  <script src="js/views/View.js" charset="utf-8"></script>
-  <script src="js/views/NegociacoesView.js" charset="utf-8"></script>
-  <script src="js/views/MensagemView.js" charset="utf-8"></script>
-  <script src="js/app.js" charset="utf-8"></script>
-
+  <script src="lib/system.js" charset="utf-8"></script>
+  <script>
+    System.defaultJSExtensions = true;
+    System.import('js/app.js').catch(erro => console.log(erro));
+  </script>
 </body>
 
 </html>
