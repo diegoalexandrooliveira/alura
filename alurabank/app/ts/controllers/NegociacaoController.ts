@@ -1,6 +1,8 @@
 import { Negociacao, Negociacoes, NegociacaoParcial } from '../models/index';
 import { MensagemView, NegociacoesView } from '../views/index';
 import { domInject, throttle } from '../helpers/decorators/index';
+import { NegociacaoService, HandlerFunction } from '../service/index';
+import { imprime } from '../helpers/index';
 
 export class NegociacaoController {
 
@@ -13,6 +15,7 @@ export class NegociacaoController {
   private _negociacoes = new Negociacoes();
   private _negociacoesView = new NegociacoesView('#negociacoesView', true);
   private _mensagemView = new MensagemView('#mensagemView');
+  private _negociacaoService = new NegociacaoService();
 
   constructor() {
     // this._inputData = $("#data");
@@ -37,8 +40,9 @@ export class NegociacaoController {
     this._negociacoes.adiciona(negociacao);
     this._negociacoesView.update(this._negociacoes);
     this._mensagemView.update("Negociação adicionada com sucesso.");
-
+    // this._negociacoes.paraTexto();
     // const t2 = performance.now();
+    imprime(negociacao, this._negociacoes);
 
     // console.log(t2-t1)
   }
@@ -50,26 +54,21 @@ export class NegociacaoController {
 
   @throttle()
   importaDados(event: Event) {
-    function isOk(res: Response) {
+    this._negociacaoService.obterNegociacoes((res: Response) => {
       if (res.ok) {
         return res;
       } else {
         throw new Error(res.statusText);
       }
-    }
-    fetch('http://localhost:8080/dados')
-      .then(res => isOk(res))
-      .then(res => res.json())
-      .then((dados: NegociacaoParcial[]) => {
-        dados
-          .map(dado => new Negociacao(new Date(), dado.vezes, dado.montante))
-          .forEach(negociacao => this._negociacoes.adiciona(negociacao));
+    })
+      .then(negociacoes => {
+        negociacoes.forEach(negociacao => this._negociacoes.adiciona(negociacao));
         this._negociacoesView.update(this._negociacoes);
+        // this._negociacoes.paraTexto();
       })
-      .catch(error => {
-        console.log(error.message);
-        this._mensagemView.update("Problemas ao importar os dados");
-      });
+      .catch(error => this._mensagemView.update('Não foi possível obter as negociações'));
+
+
   }
 }
 
