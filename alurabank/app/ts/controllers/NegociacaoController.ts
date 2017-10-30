@@ -21,9 +21,9 @@ export class NegociacaoController {
     this._negociacoesView.update(this._negociacoes);
   }
 
-  adiciona(event: Event) {
+  @throttle()
+  adiciona() {
     // const t1 = performance.now();
-    event.preventDefault();
     let data = new Date(this._inputData.val().replace(/-/g, ','));
     if (!this.diaUtil(data)) {
       this._mensagemView.update('Somento negociações em dias úteis');

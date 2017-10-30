@@ -6,8 +6,11 @@ System.register([], function (exports_1, context_1) {
             let metodoOriginal = descriptor.value;
             let timer = 0;
             descriptor.value = function (...args) {
+                if (event) {
+                    event.preventDefault();
+                }
                 clearInterval(timer);
-                timer = setTimeout(metodoOriginal.apply(this, args), milissegundos);
+                timer = setTimeout(() => metodoOriginal.apply(this, args), milissegundos);
             };
             return descriptor;
         };

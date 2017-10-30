@@ -28,8 +28,7 @@ System.register(["../models/index", "../views/index", "../helpers/decorators/ind
                     this._mensagemView = new index_2.MensagemView('#mensagemView');
                     this._negociacoesView.update(this._negociacoes);
                 }
-                adiciona(event) {
-                    event.preventDefault();
+                adiciona() {
                     let data = new Date(this._inputData.val().replace(/-/g, ','));
                     if (!this.diaUtil(data)) {
                         this._mensagemView.update('Somento negociações em dias úteis');
@@ -76,6 +75,9 @@ System.register(["../models/index", "../views/index", "../helpers/decorators/ind
             __decorate([
                 index_3.domInject('#valor')
             ], NegociacaoController.prototype, "_inputValor", void 0);
+            __decorate([
+                index_3.throttle()
+            ], NegociacaoController.prototype, "adiciona", null);
             __decorate([
                 index_3.throttle()
             ], NegociacaoController.prototype, "importaDados", null);
