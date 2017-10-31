@@ -1,6 +1,6 @@
 import { Negociacao } from './Negociacao';
-import { Imprimivel } from './Imprimivel';
-export class Negociacoes implements Imprimivel {
+import { MeuObjeto } from './MeuObjeto';
+export class Negociacoes implements MeuObjeto<Negociacoes> {
   private _negociacoes: Negociacao[] = [];
   // private _negociacoes: Array<Negociacao> = [];
 
@@ -14,6 +14,10 @@ export class Negociacoes implements Imprimivel {
 
   paraTexto(): void {
     this._negociacoes.forEach(negociacao => negociacao.paraTexto());
+  }
+
+  equals(negociacoes: Negociacoes): boolean {
+    return JSON.stringify(this._negociacoes) == JSON.stringify(negociacoes);
   }
 
 }

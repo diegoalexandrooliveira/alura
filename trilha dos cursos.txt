@@ -6,7 +6,7 @@ Curso JavaScript: Programando na linguagem da web	20h -- feito
 Curso JavaScript avançado I: ES6, orientação a objetos e padrões de projetos	12h -- feito
 Curso JavaScript Avançado II: ES6, orientação a objetos e padrões de projetos	12h -- feito
 Curso JavaScript Avançado III: ES6, orientação a objetos e padrões de projetos	12h -- feito
-Curso TypeScript parte 1: Evoluindo seu Javascript	8h
+Curso TypeScript parte 1: Evoluindo seu Javascript	8h -- feito
 Curso TypeScript parte 2: Mais técnicas e boas práticas	10h
 Previsão Inicio: 25/09/2017
 Previsão Fim: 10/11/2017	88h

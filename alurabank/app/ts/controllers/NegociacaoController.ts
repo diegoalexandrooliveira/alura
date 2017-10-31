@@ -61,12 +61,18 @@ export class NegociacaoController {
         throw new Error(res.statusText);
       }
     })
-      .then(negociacoes => {
-        negociacoes.forEach(negociacao => this._negociacoes.adiciona(negociacao));
+      .then(negociacoesRecuperadas => {
+        let negociacoesJaImportadas = this._negociacoes.paraArray();
+
+        negociacoesRecuperadas
+          .filter(negociacao =>
+            !negociacoesJaImportadas.some(negociacaoExistente =>
+              negociacao.equals(negociacaoExistente)))
+          .forEach(negociacao => this._negociacoes.adiciona(negociacao));
         this._negociacoesView.update(this._negociacoes);
         // this._negociacoes.paraTexto();
       })
-      .catch(error => this._mensagemView.update('Não foi possível obter as negociações'));
+      .catch(error => this._mensagemView.update(error.message));
 
 
   }

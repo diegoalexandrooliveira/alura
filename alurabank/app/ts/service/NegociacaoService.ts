@@ -7,7 +7,10 @@ export class NegociacaoService {
       .then(res => res.json())
       .then((dados: NegociacaoParcial[]) =>
         dados.map(dado => new Negociacao(new Date(), dado.vezes, dado.montante)))
-      .catch(error => console.log(error.message));
+      .catch(error => {
+        console.log(error.message);
+        throw new Error('Não foi possível obter as negociações');
+      });
 
   }
 }

@@ -18,6 +18,9 @@ System.register([], function (exports_1, context_1) {
                 paraTexto() {
                     this._negociacoes.forEach(negociacao => negociacao.paraTexto());
                 }
+                equals(negociacoes) {
+                    return JSON.stringify(this._negociacoes) == JSON.stringify(negociacoes);
+                }
             };
             exports_1("Negociacoes", Negociacoes);
         }
