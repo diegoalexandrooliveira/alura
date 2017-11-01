@@ -53,26 +53,47 @@ export class NegociacaoController {
 
 
   @throttle()
-  importaDados(event: Event) {
-    this._negociacaoService.obterNegociacoes((res: Response) => {
-      if (res.ok) {
-        return res;
-      } else {
-        throw new Error(res.statusText);
-      }
-    })
-      .then(negociacoesRecuperadas => {
-        let negociacoesJaImportadas = this._negociacoes.paraArray();
+  async importaDados(event: Event) {
+    try {
+      let negociacoesRecuperadas = await this._negociacaoService.obterNegociacoes((res: Response) => {
+        if (res.ok) {
+          return res;
+        } else {
+          throw new Error(res.statusText);
+        }
+      });
+      let negociacoesJaImportadas = this._negociacoes.paraArray();
 
-        negociacoesRecuperadas
-          .filter(negociacao =>
-            !negociacoesJaImportadas.some(negociacaoExistente =>
-              negociacao.equals(negociacaoExistente)))
-          .forEach(negociacao => this._negociacoes.adiciona(negociacao));
-        this._negociacoesView.update(this._negociacoes);
-        // this._negociacoes.paraTexto();
-      })
-      .catch(error => this._mensagemView.update(error.message));
+      negociacoesRecuperadas
+        .filter(negociacao =>
+          !negociacoesJaImportadas.some(negociacaoExistente =>
+            negociacao.equals(negociacaoExistente)))
+        .forEach(negociacao => this._negociacoes.adiciona(negociacao));
+      this._negociacoesView.update(this._negociacoes);
+    }
+    catch (error) {
+      this._mensagemView.update(error.message);
+    }
+
+    // this._negociacaoService.obterNegociacoes((res: Response) => {
+    //   if (res.ok) {
+    //     return res;
+    //   } else {
+    //     throw new Error(res.statusText);
+    //   }
+    // })
+    //   .then(negociacoesRecuperadas => {
+    //     let negociacoesJaImportadas = this._negociacoes.paraArray();
+    //
+    //     negociacoesRecuperadas
+    //       .filter(negociacao =>
+    //         !negociacoesJaImportadas.some(negociacaoExistente =>
+    //           negociacao.equals(negociacaoExistente)))
+    //       .forEach(negociacao => this._negociacoes.adiciona(negociacao));
+    //     this._negociacoesView.update(this._negociacoes);
+    //     // this._negociacoes.paraTexto();
+    //   })
+    //   .catch(error => this._mensagemView.update(error.message));
 
 
   }
