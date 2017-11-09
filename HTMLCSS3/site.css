@@ -6,6 +6,7 @@
   margin: 0;
   border-bottom: 10px solid #000;
   font-size: 60px;
+  text-transform: uppercase;
 }
 
 h2 {
@@ -89,4 +90,27 @@ aside h1 {
   display: block;
   text-align: center;
   background-color: #E6E7E8;
+}
+
+.icones-sociais a {
+  width: 40px;
+  height: 40px;
+  display: block;
+  text-indent: -99999px;
+}
+
+.github {
+  background-image: url(github.png);
+}
+
+.twitter {
+  background-image: url(twitter.png);
+}
+
+.linkedin {
+  background-image: url(linkedin.png);
+}
+
+.links-navegacao {
+  text-transform: lowercase;
 }
