@@ -10,7 +10,8 @@
 }
 
 h2 {
-  font-size: 30px;
+  font-size: 40px;
+  clear: both;
 }
 
 .font-titulo {
@@ -44,12 +45,40 @@ p {
   width: 250px;
   margin: 20px 40px;
   box-sizing: border-box;
+  font-style: italic;
+  display: block;
+}
+
+.float-right {
+  float: right;
+}
+
+.float-left {
+  float: left;
+}
+
+.minha-foto, .navegacao-site {
+  border-left: 10px solid black;
+  border-bottom: 10px solid black;
+  box-sizing: border-box;
 }
 
 .navegacao-site {
   background-color: #3C1D3D;
   color: #F2FFFC;
   text-align: center;
+  padding: 20px;
+}
+
+
+aside, img {
+  float: right;
+  width: 15%;
+}
+
+main {
+  float: left;
+  width: 85%;
 }
 
 nav a {
@@ -59,6 +88,7 @@ nav a {
 #rodape-pagina {
   background-color: #000;
   color: #F2FFFC;
+  clear: both;
 }
 
 .centralizar-texto {
