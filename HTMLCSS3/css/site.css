@@ -38,16 +38,7 @@ p {
   margin: 20px 0;
 }
 
-.quotes {
-  background-color: #D9E5E3;
-  padding: 16px;
-  border: 10px solid #C2CCCA;
-  width: 250px;
-  margin: 20px 40px;
-  box-sizing: border-box;
-  font-style: italic;
-  display: block;
-}
+
 
 .float-right {
   float: right;
@@ -63,17 +54,22 @@ p {
   box-sizing: border-box;
 }
 
+.minha-foto {
+  position: absolute;
+  top: 0;
+  right: 0;
+  float: right;
+}
+
 .navegacao-site {
   background-color: #3C1D3D;
   color: #F2FFFC;
   text-align: center;
   padding: 20px;
-}
-
-
-aside, img {
   float: right;
   width: 15%;
+  position: relative;
+  top: 310px;
 }
 
 main {
@@ -81,21 +77,21 @@ main {
   width: 85%;
 }
 
-nav a {
-  color: #F2FFFC;
-}
-
 #rodape-pagina {
   background-color: #000;
   color: #F2FFFC;
   clear: both;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
 }
 
 .centralizar-texto {
-  width: 720px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 30px 0;
+  width: 70%;
+  margin: 0 auto;
+  padding: 40px 0;
+  padding-bottom: 80px;
 }
 
 aside h1 {
@@ -107,21 +103,6 @@ aside h1 {
   display: inline-block;
 }
 
-.artigos {
-  padding-bottom: 30px;
-  border-bottom: 1px solid #ccc;
-  margin-bottom: 20px;
-}
-
-.links {
-  font-size: 24px;
-  padding: 8px;
-  margin: 16px;
-  display: block;
-  text-align: center;
-  background-color: #E6E7E8;
-}
-
 .icones-sociais a {
   width: 40px;
   height: 40px;
@@ -130,15 +111,15 @@ aside h1 {
 }
 
 .github {
-  background-image: url(github.png);
+  background-image: url(../img/github.png);
 }
 
 .twitter {
-  background-image: url(twitter.png);
+  background-image: url(../img/twitter.png);
 }
 
 .linkedin {
-  background-image: url(linkedin.png);
+  background-image: url(../img/linkedin.png);
 }
 
 .links-navegacao {

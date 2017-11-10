@@ -1,0 +1,14 @@
+.caixa-portifolio {
+  box-sizing: border-box;
+  width: 40%;
+  border: 8px solid #000;
+  background-color: #FAFFFC;
+  padding: 16px;
+  margin: 16px;
+  /*text-align: center;*/
+  display: inline-block;
+}
+
+.caixa-portifolio img {
+  width: 100%;
+}

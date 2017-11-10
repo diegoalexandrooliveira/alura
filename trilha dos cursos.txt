@@ -11,7 +11,7 @@ Curso TypeScript parte 2: Mais técnicas e boas práticas	10h -- feito
 Previsão Inicio: 25/09/2017
 Previsão Fim: 10/11/2017	88h
 
-Curso HTML5 e CSS3 I: Suas primeiras páginas da Web	32h
+Curso HTML5 e CSS3 I: Suas primeiras páginas da Web	32h -- feito
 Curso HTML5 e CSS3 II: Turbinando as suas páginas	40h
 Curso Web Design Responsivo: Páginas que se adaptam do mobile ao desk	10h
 Previsão Inicio: 20/11/2017

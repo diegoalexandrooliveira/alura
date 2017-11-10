@@ -1,0 +1,10 @@
+.quotes {
+  background-color: #D9E5E3;
+  padding: 16px;
+  border: 10px solid #C2CCCA;
+  width: 250px;
+  margin: 20px 40px;
+  box-sizing: border-box;
+  font-style: italic;
+  display: block;
+}
