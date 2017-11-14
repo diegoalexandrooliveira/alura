@@ -1,71 +1,201 @@
 .foto-home {
-    height: 200px;
+  height: 200px;
 }
+
 .saudacao p {
-    color: #99A;
-    line-height: 1;
+  color: #99A;
+  line-height: 1;
+  font: 1.5em;
+  padding: 2em;
 }
+
 .saudacao-inicio {
-    color: #889;
+  color: #889;
+  font-size: 3em;
 }
+
 .saudacao-ultima-linha {
-    text-align: right;
-    display: block;
+  text-align: right;
+  display: block;
 }
+
 .saudacao strong {
-    color: #000;
+  color: #000;
+  font-size: 2em;
 }
+
 .saudacao em {
-    color: #851944;
+  color: #851944;
+  font-size: 4em;
 }
+
 .botao-index {
-    background-color: #851944;
-    color: #FFF;
-    border: .2em solid black;
-    width: 400px;
-    display: block;
-    text-align: center;
+  background-color: #851944;
+  color: #FFF;
+  border: .2em solid black;
+  width: 40ch;
+  display: block;
+  text-align: center;
+  font-size: 1.25em;
+  padding: .5em;
+  margin: 2em auto;
 }
+
 .secao-inicio h2 {
-    text-transform: uppercase;
+  text-transform: uppercase;
+  font-size: 3em;
+  text-shadow: 2px 2px #000;
+  margin-bottom: .5em;
 }
+
+.secao-inicio {
+  padding: 2em;
+}
+
 .trabalhos {
-    background-color: #3C1D3D;
-    border-top: 10px solid #000;
-    border-bottom: 10px solid #000;
+  background-color: #3C1D3D;
+  border-top: 10px solid #000;
+  border-bottom: 10px solid #000;
 }
+
 .trabalhos h2 {
-    color: #FFF;
+  color: #FFF;
 }
+
 .trabalhos ul {
-    overflow: hidden;
-    border: 10px solid black;
+  overflow: hidden;
+  border: 10px solid black;
 }
+
 .trabalhos li {
-    float: left;
-    width: 33.333%;
+  float: left;
+  width: 33.333%;
 }
+
 .trabalhos img {
-    width: 100%;
-    display: block;
+  width: 100%;
+  display: block;
 }
+
 .blog {
-    background-color: #999;
-    color: #FFF;
-    border-bottom: 10px solid #851944;
+  background-color: #999;
+  color: #FFF;
+  border-bottom: 10px solid #851944;
+  position: relative;
 }
+
 .blog li a {
-    color: #FCF;
+  /*color: #FCF;*/
+  padding: .5em;
+  display: block;
 }
+
+.blog .mais-recente {
+  background-color: #F2FFFC;
+}
+
+.blog li {
+  width: 30%;
+}
+
+.blog .mais-recente a {
+  color: #F26;
+}
+
+.blog small {
+  position: relative;
+  top: -2em;
+}
+
 footer {
-    background-color: #000;
-    color: #FFF;
+  background-color: #000;
+  color: #FFF;
 }
+
 footer a {
-    color: #F99;
+  color: #F99;
 }
+
 main {
-    width: 100%;
-    padding-bottom: 0;
-    float: none;
+  width: 100%;
+  padding-bottom: 0;
+  float: none;
+}
+
+.inicio-post {
+  position: absolute;
+  background-color: #F2FFFC;
+  color: #000;
+  top: 5em;
+  left: 30%;
+  right: 4em;
+  height: 6em;
+  padding: 1em;
+  width: 40em;
+}
+
+.palavra-home {
+  font-family: "Shadows Into Light", serif;
+  font-weight: bold;
+  color: #D5447E;
+  position: absolute;
+}
+
+.eficiencia {
+  top: 20%;
+  left: 75%;
+}
+
+.boas-praticas {
+  top: 70%;
+  left: 20%;
+}
+
+.codigo-limpo {
+  top: 45%;
+  left: 10%;
+}
+
+.css3 {
+  top: 50%;
+  left: 30%;
+}
+
+.html5 {
+  top: 40%;
+  left: 80%;
+}
+
+.javascript {
+  top: 10%;
+  left: 60%;
+}
+
+.acessibilidade {
+  top: 30%;
+  left: 25%;
+}
+
+.responsivo {
+  top: 15%;
+  left: 15%;
+}
+
+.otimizacoes {
+  top: 60%;
+  left: 70%;
+}
+
+.agilidade {
+  top: 10%;
+  left: 30%;
+}
+
+.design {
+  top: 35%;
+  left: 65%;
+}
+
+header {
+  position: relative;
 }
