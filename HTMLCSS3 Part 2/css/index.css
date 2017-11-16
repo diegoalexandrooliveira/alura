@@ -1,3 +1,7 @@
+.titulo-principal {
+  background-image: linear-gradient(to bottom, #F00, #888 80%, #000);
+}
+
 .foto-home {
   height: 200px;
   border-radius: 10em;
@@ -7,13 +11,14 @@ body, html {
   height: 100%;
   overflow-x: hidden;
 }
-body{
+
+body {
   perspective-origin: 50% 160px;
   perspective: 6px;
 }
 
 .palavras-home, .titulo-principal {
-    transform-style: preserve-3d;
+  transform-style: preserve-3d;
 }
 
 .saudacao p {
@@ -72,6 +77,9 @@ body{
   background-color: #3C1D3D;
   border-top: 10px solid #000;
   border-bottom: 10px solid #000;
+  background-image: linear-gradient(135deg, transparent, transparent 14px, rgba(0, 0, 0, 0.1) 14px, rgba(0, 0, 0, 0.1) 15px, transparent 15px, transparent);
+  background-size: 20px 20px;
+  background-attachment: fixed;
 }
 
 .trabalhos h2 {
@@ -98,6 +106,9 @@ body{
   color: #FFF;
   border-bottom: 10px solid #851944;
   position: relative;
+  background-image: linear-gradient(45deg, transparent, transparent 14px, rgba(255, 255, 255, 0.1) 14px, rgba(255, 255, 255, 0.1) 15px, transparent 15px, transparent);
+  background-size: 20px 20px;
+  background-attachment: fixed;
 }
 
 .blog li a {
@@ -160,7 +171,7 @@ main {
 }
 
 .palavras-home li {
-    font-size: 400%;
+  font-size: 400%;
 }
 
 .palavra-home {
