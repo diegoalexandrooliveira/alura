@@ -138,3 +138,11 @@ main {
     right: 0;
     height: 300px;
 }
+
+main a:hover, footer a:hover{
+  color: red;
+}
+
+aside a:hover{
+  text-shadow: 0 0 2px pink;
+}
