@@ -117,16 +117,8 @@ body {
   display: block;
 }
 
-.blog .mais-recente {
-  background-color: #F2FFFC;
-}
-
 .blog li {
   width: 30%;
-}
-
-.blog .mais-recente a {
-  color: #F26;
 }
 
 .blog small {
@@ -149,16 +141,26 @@ main {
   float: none;
 }
 
-.inicio-post {
+.post {
+  display: none;
+}
+
+a:hover + p.post, a:focus + p.post {
   position: absolute;
   background-color: #F2FFFC;
   color: #000;
-  top: 5em;
+  top: 8em;
   left: 30%;
   right: 4em;
   height: 6em;
   padding: 1em;
   width: 40em;
+  display: block;
+}
+
+a.mais-recente:hover, a.mais-recente:focus {
+  background-color: #F2FFFC;
+  color: #F26;
 }
 
 .palavras-home {
