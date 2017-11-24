@@ -76,6 +76,7 @@ main p {
   margin-left: auto;
   margin-right: auto;
   padding: 1.85rem 0;
+  position: relative;
 }
 
 strong {

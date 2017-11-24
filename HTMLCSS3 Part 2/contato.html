@@ -21,10 +21,10 @@
         <fieldset>
           <legend class="legenda">Dados pessoais</legend>
           <label class="label" for="nome">Nome:</label>
-          <input id="nome" name="nome" placeholder="Seu nome aqui..." required autofocus pattern="[A-Za-z ']{4,}" />
+          <input class="field" id="nome" name="nome" placeholder="Seu nome aqui..." required autofocus pattern="[A-Za-z ']{4,}" />
 
           <label class="label" for="email">Email:</label>
-          <input id="email" name="email" placeholder="Seu e-mail aqui..." type="email" required />
+          <input class="field" id="email" name="email" placeholder="Seu e-mail aqui..." type="email" required />
         </fieldset>
 
         <fieldset>
@@ -44,8 +44,8 @@
         </fieldset>
 
         <label class="label" for="mensagem">Mensagem:</label>
-        <textarea id="mensagem" name="mensagem" rows="6" cols="30" placeholder="Digite sua mensagem aqui" required></textarea>
-        <button type="submit">Enviar <strong>para mim</strong></button>
+        <textarea class="field" id="mensagem" name="mensagem" rows="6" cols="30" placeholder="Digite sua mensagem aqui" required></textarea>
+        <button type="submit" class="botao-enviar">Enviar <strong>para mim</strong></button>
       </form>
     </div>
   </main>
