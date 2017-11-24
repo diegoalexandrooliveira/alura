@@ -37,11 +37,16 @@ main p {
   margin: 1.25rem 0;
 }
 
+main {
+  width: calc(100% - 0.9 * 300px);
+}
+
 .navegacao-site {
   text-align: center;
   background-color: #3C1D3D;
   color: #F2FFFC;
   padding: 1.25rem;
+  width: calc(0.9 * 300px);
 }
 
 .navegacao-site a {

@@ -145,7 +145,7 @@ main {
   display: none;
 }
 
-a:hover + p.post, a:focus + p.post {
+a:hover+p.post, a:focus+p.post {
   position: absolute;
   background-color: #F2FFFC;
   color: #000;
@@ -253,7 +253,9 @@ header {
   position: relative;
 }
 
+
 .banner {
+  --coseno: 0.707;
   background-color: #3C1D3D;
   padding: 1em 0;
   width: 14em;
@@ -266,7 +268,8 @@ header {
   font-weight: bold;
   border: .25em solid #000;
   transform-origin: 0 0;
-  transform: translate(6.5754em, -2.4749em) rotate(45deg);
+  /*transform: translate(6.5754em, -2.4749em) rotate(45deg);*/
+  transform: translate(calc(var(--coseno) * (3.5em - 14em) + 14em), calc((var(--coseno) * -1) * 3.5em)) rotate(45deg);
   line-height: 1;
   top: 0;
   right: 0;
