@@ -17,6 +17,7 @@ export class NegociacaoService {
     this._http = new HttpService();
   }
 
+
   obterNegociacoes() {
     return Promise.all([this.obterNegociacoesDaSemana(), this.obterNegociacoesDaSemanaPassada(),
         this.obterNegociacoesDaSemanaRetrasada()
@@ -42,7 +43,7 @@ export class NegociacaoService {
             new Negociacao(new Date(objeto.data), objeto.quantidade, objeto.valor)))
         ).catch(erro => {
           console.log(erro);
-          reject("Não foi possível importar as negociações da semana");
+          reject("Não foi possível importar as negociações da semana.");
         })
 
     });
