@@ -1,13 +1,14 @@
-.titulo-principal {
-  background-image: linear-gradient(to bottom, #F00, #888 80%, #000);
-}
+/* .titulo-principal {
+  background-image: linear-gradient(to bottom, #f00, #888 80%, #000);
+} */
 
 .foto-home {
   height: 200px;
   border-radius: 10em;
 }
 
-body, html {
+body,
+html {
   height: 100%;
   overflow-x: hidden;
 }
@@ -17,12 +18,13 @@ body {
   perspective: 6px;
 }
 
-.palavras-home, .titulo-principal {
+.palavras-home,
+.titulo-principal {
   transform-style: preserve-3d;
 }
 
 .saudacao p {
-  color: #99A;
+  color: #99a;
   line-height: 1;
   font: 1.5em;
   padding: 2em;
@@ -48,25 +50,51 @@ body {
   font-size: 4em;
   display: inline-block;
   transform: skew(-10deg) rotate(-5deg);
+  animation: flutua 1s infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+  position: relative;
+}
+
+.saudacao:hover em {
+  animation-play-state: paused;
+}
+
+@keyframes flutua {
+  from {
+      top: -5px;
+  }
+  to {
+      top: 5px;
+  }
 }
 
 .botao-index {
   background-color: #851944;
-  color: #FFF;
-  border: .2em solid black;
+  color: #fff;
+  border: 0.2em solid black;
   width: 40ch;
   display: block;
   text-align: center;
   font-size: 1.25em;
-  padding: .5em;
+  padding: 0.5em;
   margin: 2em auto;
+  transition: 0.5s;
+  text-decoration: none;
+}
+
+.botao-index:hover,
+.botao-index:focus {
+  text-shadow: 0 0 1em #fa9;
+  background-color: #c54974;
+  color: white;
 }
 
 .secao-inicio h2 {
   text-transform: uppercase;
   font-size: 3em;
   text-shadow: 2px 2px #000;
-  margin-bottom: .5em;
+  margin-bottom: 0.5em;
 }
 
 .secao-inicio {
@@ -74,16 +102,24 @@ body {
 }
 
 .trabalhos {
-  background-color: #3C1D3D;
+  background-color: #3c1d3d;
   border-top: 10px solid #000;
   border-bottom: 10px solid #000;
-  background-image: linear-gradient(135deg, transparent, transparent 14px, rgba(0, 0, 0, 0.1) 14px, rgba(0, 0, 0, 0.1) 15px, transparent 15px, transparent);
+  background-image: linear-gradient(
+    135deg,
+    transparent,
+    transparent 14px,
+    rgba(0, 0, 0, 0.1) 14px,
+    rgba(0, 0, 0, 0.1) 15px,
+    transparent 15px,
+    transparent
+  );
   background-size: 20px 20px;
   background-attachment: fixed;
 }
 
 .trabalhos h2 {
-  color: #FFF;
+  color: #fff;
 }
 
 .trabalhos ul {
@@ -103,17 +139,25 @@ body {
 
 .blog {
   background-color: #999;
-  color: #FFF;
+  color: #fff;
   border-bottom: 10px solid #851944;
   position: relative;
-  background-image: linear-gradient(45deg, transparent, transparent 14px, rgba(255, 255, 255, 0.1) 14px, rgba(255, 255, 255, 0.1) 15px, transparent 15px, transparent);
+  background-image: linear-gradient(
+    45deg,
+    transparent,
+    transparent 14px,
+    rgba(255, 255, 255, 0.1) 14px,
+    rgba(255, 255, 255, 0.1) 15px,
+    transparent 15px,
+    transparent
+  );
   background-size: 20px 20px;
   background-attachment: fixed;
 }
 
 .blog li a {
   /*color: #FCF;*/
-  padding: .5em;
+  padding: 0.5em;
   display: block;
 }
 
@@ -128,11 +172,11 @@ body {
 
 footer {
   background-color: #000;
-  color: #FFF;
+  color: #fff;
 }
 
 footer a {
-  color: #F99;
+  color: #f99;
 }
 
 main {
@@ -145,9 +189,10 @@ main {
   display: none;
 }
 
-a:hover+p.post, a:focus+p.post {
+a:hover + p.post,
+a:focus + p.post {
   position: absolute;
-  background-color: #F2FFFC;
+  background-color: #f2fffc;
   color: #000;
   top: 8em;
   left: 30%;
@@ -158,9 +203,10 @@ a:hover+p.post, a:focus+p.post {
   display: block;
 }
 
-a.mais-recente:hover, a.mais-recente:focus {
-  background-color: #F2FFFC;
-  color: #F26;
+a.mais-recente:hover,
+a.mais-recente:focus {
+  background-color: #f2fffc;
+  color: #f26;
 }
 
 .palavras-home {
@@ -179,8 +225,23 @@ a.mais-recente:hover, a.mais-recente:focus {
 .palavra-home {
   font-family: "Shadows Into Light", serif;
   font-weight: bold;
-  color: #D5447E;
+  color: #d5447e;
   position: absolute;
+  -webkit-animation: aparece 2s;
+  animation: aparece 2s;
+}
+
+@-webkit-keyframes aparece {
+  0% {
+    opacity: 0;
+    transform: scale(0.001);
+  }
+}
+@keyframes aparece {
+  0% {
+    opacity: 0;
+    transform: scale(0.001);
+  }
 }
 
 .eficiencia {
@@ -253,26 +314,33 @@ header {
   position: relative;
 }
 
-
 .banner {
   --coseno: 0.707;
-  background-color: #3C1D3D;
+  background-color: #3c1d3d;
   padding: 1em 0;
   width: 14em;
   text-align: center;
   box-sizing: border-box;
   position: absolute;
-  color: #FFF;
+  color: #fff;
   text-decoration: none;
   font-size: 1.4em;
   font-weight: bold;
-  border: .25em solid #000;
+  border: 0.25em solid #000;
   transform-origin: 0 0;
   /*transform: translate(6.5754em, -2.4749em) rotate(45deg);*/
-  transform: translate(calc(var(--coseno) * (3.5em - 14em) + 14em), calc((var(--coseno) * -1) * 3.5em)) rotate(45deg);
+  transform: translate(
+      calc(var(--coseno) * (3.5em - 14em) + 14em),
+      calc((var(--coseno) * -1) * 3.5em)
+    )
+    rotate(45deg);
   line-height: 1;
   top: 0;
   right: 0;
+  -webkit-animation: aparece 2s;
+  animation: aparece 2s;
+  animation-delay: 2s;
+  animation-fill-mode: backwards;
 }
 
 /*.cubo {
