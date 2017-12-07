@@ -13,7 +13,7 @@ Previsão Fim: 10/11/2017	88h
 
 Curso HTML5 e CSS3 I: Suas primeiras páginas da Web	32h -- feito
 Curso HTML5 e CSS3 II: Turbinando as suas páginas	40h -- feito
-Curso Web Design Responsivo: Páginas que se adaptam do mobile ao desk	10h
+Curso Web Design Responsivo: Páginas que se adaptam do mobile ao desk	10h -- feito
 Previsão Inicio: 20/11/2017
 Previsão Fim: 29/12/2017	82h
 

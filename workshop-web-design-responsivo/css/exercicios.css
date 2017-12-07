@@ -109,6 +109,40 @@ header {
 
     background: rgba(0, 0, 0, 0.4);
   }
+
+  .menu-abrir,
+  .menu-fechar {
+    background: none;
+    border: 0;
+    outline: 0;
+    -webkit-appearance: none;
+    font-size: 1.6em;
+    text-indent: -999em;
+  }
+
+  .menu-abrir {
+    height: 0;
+    width: 0.75em;
+    padding-top: 0.125em;
+    border-top: 0.375em double #000;
+    border-bottom: 0.125em solid #000;
+
+    vertical-align: middle;
+    margin: 0.5em;
+  }
+
+  .menu-fechar {
+    position: relative;
+    height: 1em;
+    width: 1em;
+  }
+  .menu-fechar:before {
+    content: "\00D7";
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-indent: 0;
+  }
 }
 
 @media not all and (max-width: 600px) {
@@ -116,4 +150,8 @@ header {
   .menu-fechar {
     display: none;
   }
+}
+
+.logo img {
+  width: 200px;
 }
