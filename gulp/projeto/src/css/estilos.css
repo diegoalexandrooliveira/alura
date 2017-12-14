@@ -14,14 +14,11 @@ header {
 
 .sacola {
   background: url(../img/sacola.png) no-repeat top right;
-
   font-size: 14px;
   padding-right: 35px;
   text-align: right;
   width: 140px;
-
   padding-top: 8px;
-
   position: absolute;
   top: 8px;
   right: 0;
@@ -38,20 +35,19 @@ header {
 }
 
 .menu-opcoes ul li {
-    display: inline;
-    margin: 0 0 0 20px;
+  display: inline;
+  margin: 0 0 0 20px;
 }
 
 .menu-opcoes a {
-   color: #003366;
+  color: #003366;
 }
 
-.busca, 
+.busca,
 .menu-departamentos {
   background-color: #dcdcdc;
   font-weight: bold;
   text-transform: uppercase;
-  
   margin-right: 10px;
   width: 230px;
 }
@@ -73,13 +69,13 @@ header {
   text-decoration: none;
 }
 
-.busca, 
+.busca,
 .menu-departamentos {
   float: left;
 }
 
 .menu-departamentos {
-    clear: left;
+  clear: left;
 }
 
 .menu-departamentos {
@@ -91,7 +87,7 @@ header {
   vertical-align: middle;
 }
 
-.busca input[type=search] {
+.busca input[type="search"] {
   width: 170px;
 }
 
@@ -99,7 +95,6 @@ header {
   font-size: 24px;
   font-weight: bold;
   text-transform: uppercase;
-
   margin-bottom: 10px;
 }
 
@@ -117,7 +112,7 @@ header {
 }
 
 .mais-vendidos {
-  background: #dcdcf5
+  background: #dcdcf5;
 }
 
 .painel {
@@ -138,13 +133,13 @@ header {
   display: inline-block;
   vertical-align: top;
   width: 140px;
-
   margin: 2px;
   padding-bottom: 10px;
 }
 
 
 /* ex6 */
+
 footer {
   background-image: url(../img/fundo-rodape.png);
   clear: both;
@@ -170,11 +165,10 @@ footer .container {
   /* tamanho da imagem */
   height: 32px;
   width: 32px;
-
   /* image replacement */
   color: transparent;
   display: block;
-  text-indent: -9999px;  
+  text-indent: -9999px;
 }
 
 .social a[href*="facebook.com"] {
@@ -190,10 +184,11 @@ footer .container {
 }
 
 .menu-opcoes a:hover {
-    color: #007dc6;
+  color: #007dc6;
 }
+
 .menu-opcoes a:active {
-     color: #867dc6;
+  color: #867dc6;
 }
 
 .menu-departamentos ul li ul {
@@ -209,15 +204,16 @@ footer .container {
 }
 
 .menu-departamentos li li a:before {
-  content: '- ';
+  content: "- ";
 }
 
 .menu-departamentos li li a:before {
-  content: '\272A';
+  content: "\272A";
   padding-right: 3px;
 }
+
 .painel h2:before {
-  content: '\2756';
+  content: "\2756";
   padding-right: 5px;
   opacity: 0.4;
 }
@@ -230,33 +226,39 @@ footer .container {
   border-radius: 4px;
   box-shadow: 1px 1px 4px #999;
 }
+
 .painel h2 {
-  text-shadow: 1px 1px 2px #FFF;
+  text-shadow: 1px 1px 2px #fff;
 }
 
 .busca {
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
 }
+
 .painel h2 {
-  text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
 }
 
 
 /* ex4: transform e transition */
 
+
 /* transform basico */
+
 .painel li:hover {
   box-shadow: 0 0 5px #333;
   transition: box-shadow 0.7s;
 }
 
 .painel li:hover {
-  background-color: rgba(255,255,255,0.8);
+  background-color: rgba(255, 255, 255, 0.8);
   transition: all 0.7s;
 }
 
+
 /* transform parte 1 */
+
 .painel li:hover {
   transform: scale(1.2);
 }
@@ -276,6 +278,7 @@ footer .container {
 .painel li:hover {
   transition: all 0.7s ease-in;
 }
+
 .painel li {
   transition: all 0.7s ease-out;
 }
@@ -287,7 +290,8 @@ footer .container {
 .painel-compacto button {
   display: block;
 }
-.painel-compacto li:nth-child(n+7) {
+
+.painel-compacto li:nth-child(n + 7) {
   display: none;
 }
 
@@ -296,56 +300,56 @@ footer .container {
   float: right;
   margin-right: 10px;
   padding: 10px;
-
   /* estilo */
   background: #333;
   border: 0;
   border-radius: 4px;
-  box-shadow: 1px 1px 3px rgba(30,30,30,0.5);
+  box-shadow: 1px 1px 3px rgba(30, 30, 30, 0.5);
   color: white;
   font-size: 1em;
   text-decoration: none;
   text-shadow: 1px 0 1px black;
   transition: 0.3s;
 }
-  .painel button:hover {
-    background: #393939;
-    box-shadow: 1px 0 20px rgba(200,200,120,0.9);
-  }
+
+.painel button:hover {
+  background: #393939;
+  box-shadow: 1px 0 20px rgba(200, 200, 120, 0.9);
+}
 
 .painel button {
   color: white;
   position: relative;
   margin-bottom: 10px;
 }
+
 .painel button:after {
   /* elemento vazio */
-  content: '';
+  content: "";
   display: block;
   height: 0;
   width: 0;
-
   /* triangulo */
   border-top: 10px solid #333;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-
   /* posicionamento */
   position: absolute;
   top: 100%;
   left: 50%;
   margin-left: -5px;
-
   /* animacao */
   transition: 0.3s;
 }
+
 .painel button:hover:after {
   border-top-color: #393939;
 }
 
 body {
-  font-family: 'PT Sans', sans-serif;
+  font-family: "PT Sans", sans-serif;
 }
+
 .painel h2 {
-  font-family: 'Bad Script', sans-serif;
+  font-family: "Bad Script", sans-serif;
 }
