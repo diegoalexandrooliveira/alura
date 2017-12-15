@@ -1,5 +1,8 @@
+@corBranca: #dcdcdc;
+@corDoBody: #333333;
+
 body {
-  color: #333333;
+  color: @corDoBody;
   font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-serif;
 }
 
@@ -45,7 +48,7 @@ header {
 
 .busca,
 .menu-departamentos {
-  background-color: #dcdcdc;
+  background-color: @corBranca;
   font-weight: bold;
   text-transform: uppercase;
   margin-right: 10px;
@@ -137,7 +140,6 @@ header {
   padding-bottom: 10px;
 }
 
-
 /* ex6 */
 
 footer {
@@ -200,7 +202,7 @@ footer .container {
 }
 
 .menu-departamentos ul li ul li {
-  background-color: #dcdcdc;
+  background-color: @corBranca;
 }
 
 .menu-departamentos li li a:before {
@@ -240,9 +242,7 @@ footer .container {
   text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
 }
 
-
 /* ex4: transform e transition */
-
 
 /* transform basico */
 
@@ -255,7 +255,6 @@ footer .container {
   background-color: rgba(255, 255, 255, 0.8);
   transition: all 0.7s;
 }
-
 
 /* transform parte 1 */
 

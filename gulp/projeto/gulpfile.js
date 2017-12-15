@@ -6,7 +6,12 @@ var gulp = require("gulp"),
   uglify = require("gulp-uglify"),
   usemin = require("gulp-usemin"),
   cssmin = require("gulp-cssmin"),
-  browse = require("browser-sync");
+  browse = require("browser-sync"),
+  jshint = require("gulp-jshint"),
+  jshintStylish = require("jshint-stylish"),
+  csslint = require("gulp-csslint"),
+  autoprefixer = require("gulp-autoprefixer"),
+  less = require("gulp-less");
 
 gulp.task("default", ["copy"], function() {
   gulp.start("build-img", "usemin");
@@ -52,7 +57,7 @@ gulp.task("usemin", function() {
     .pipe(
       usemin({
         js: [uglify],
-        css: [cssmin]
+        css: [autoprefixer, cssmin]
       })
     )
     .pipe(gulp.dest("dist"));
@@ -65,5 +70,32 @@ gulp.task("server", function() {
       // proxy: "localhost:3000/"
     }
   });
+  gulp.watch("src/js/*.js").on("change", function(event) {
+    gulp
+      .src(event.path)
+      .pipe(jshint())
+      .pipe(jshint.reporter(jshintStylish));
+  });
+
+  gulp.watch("src/css/*.css").on("change", function(event) {
+    gulp
+      .src(event.path)
+      .pipe(csslint())
+      .pipe(csslint.reporter());
+  });
+
+  gulp.watch("src/less/*").on("change", function(event) {
+    console.log("Chamou o less");
+    var stream = gulp
+      .src(event.path)
+      .pipe(
+        less().on("error", function(erro) {
+          console.log("LESS, erro compilação: " + erro.filename);
+          console.log(erro.message);
+        })
+      )
+      .pipe(gulp.dest("src/css"));
+  });
+
   gulp.watch("src/**/*").on("change", browse.reload);
 });
