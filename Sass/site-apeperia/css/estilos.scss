@@ -1,6 +1,16 @@
 $cor-padrao: #943d36;
 $cor-auxiliar: #1e2c35;
-$cor-branca: white;
+$cor-branca: #fff;
+
+@mixin borda-redonda($raio: 0.3em) {
+  -webkit-border-radius: $raio;
+  border-radius: $raio;
+}
+
+@mixin sombra-padrao {
+  box-shadow: 0 2px 6.65px 0.35px rgba(0, 0, 0, 0.3);
+}
+
 /** Geral **/
 body {
   font-family: "Roboto Slab", serif;
@@ -98,9 +108,8 @@ header .container {
   border: 0;
   padding: 0.6em;
   font-size: 1.2em;
-  -webkit-border-radius: 0.3em;
-  border-radius: 0.3em;
-  box-shadow: 0 2px 6.65px 0.35px rgba(0, 0, 0, 0.3);
+  @include borda-redonda(50px);
+  @include sombra-padrao();
   font-weight: bold;
 }
 
@@ -165,7 +174,7 @@ header .container {
 }
 
 .planos h2 {
-  color: #fff;
+  color: $cor-branca;
 }
 
 .plano {
@@ -223,9 +232,8 @@ header .container {
   width: 210px;
   height: 38px;
   font-size: 1.2em;
-  -webkit-border-radius: 0.3em;
-  border-radius: 0.3em;
-  box-shadow: 0 2px 6.65px 0.35px rgba(0, 0, 0, 0.3);
+  @include borda-redonda();
+  @include sombra-padrao();
   margin-left: 2em;
 }
 
@@ -307,8 +315,7 @@ textarea {
   width: 100%;
   margin-bottom: 0.8em;
   padding: 4px 8px;
-  -webkit-border-radius: 0.3em;
-  border-radius: 0.3em;
+  @include borda-redonda();
   border: 2px solid #ccc;
 }
 
@@ -320,9 +327,8 @@ textarea {
   width: 210px;
   height: 38px;
   font-size: 1.2em;
-  -webkit-border-radius: 0.3em;
-  border-radius: 0.3em;
-  box-shadow: 0 2px 6.65px 0.35px rgba(0, 0, 0, 0.3);
+  @include borda-redonda();
+  @include sombra-padrao();
 }
 
 /** Footer **/

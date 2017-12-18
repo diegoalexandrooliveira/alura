@@ -46,7 +46,7 @@ header .container {
   width: 5em; }
 
 .menu-opcoes a {
-  color: white;
+  color: #fff;
   text-decoration: none; }
 
 .menu-opcoes a:hover {
@@ -57,7 +57,7 @@ header .container {
   background: url(../imagens/destaque.jpg) center bottom repeat-x;
   -webkit-background-size: cover;
   background-size: cover;
-  color: white;
+  color: #fff;
   height: 330px;
   padding-top: 10em; }
 
@@ -79,8 +79,8 @@ header .container {
   border: 0;
   padding: 0.6em;
   font-size: 1.2em;
-  -webkit-border-radius: 0.3em;
-  border-radius: 0.3em;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
   box-shadow: 0 2px 6.65px 0.35px rgba(0, 0, 0, 0.3);
   font-weight: bold; }
 
@@ -136,7 +136,7 @@ header .container {
   color: #fff; }
 
 .plano {
-  background: white;
+  background: #fff;
   width: 18em;
   display: inline-block;
   margin: 1em 0 0 1.4em;
@@ -146,7 +146,7 @@ header .container {
   background: #dedede; }
 
 .plano h3 {
-  color: white;
+  color: #fff;
   font-size: 1.8em;
   background: #943d36;
   text-align: center;
@@ -178,7 +178,7 @@ header .container {
 .plano button {
   background: #943d36;
   border: 0;
-  color: white;
+  color: #fff;
   width: 210px;
   height: 38px;
   font-size: 1.2em;
@@ -261,7 +261,7 @@ textarea {
   margin: 0 auto;
   background: #943d36;
   border: 0;
-  color: white;
+  color: #fff;
   width: 210px;
   height: 38px;
   font-size: 1.2em;
@@ -324,7 +324,7 @@ footer .container img {
   display: inline; }
 
 footer a {
-  color: white;
+  color: #fff;
   text-decoration: none; }
 
 .social li {
