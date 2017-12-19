@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server":
-      "browser-sync start --server 'site-apeperia' --files 'site-apeperia' --reload-delay '2000'"
+    "server": "browser-sync start --server \"site-apeperia\" --files \"site-apeperia\" --reload-delay \"2000\""
   },
   "author": "",
   "license": "ISC",
