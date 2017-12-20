@@ -7,7 +7,7 @@
     "run:server":
       "browser-sync start --server \"site-apeperia\" --files \"site-apeperia/**/*.css\" \"site-apeperia/**/*.js\" \"site-apeperia/**/*.html\"",
     "compile-sass":
-      "node-sass-chokidar --source-map true site-apeperia/css/ -o site-apeperia/css/",
+      "node-sass-chokidar --source-map true site-apeperia/css/estilos.scss -o site-apeperia/css/",
     "run:watch-sass":
       "chokidar \"site-apeperia/**/*.scss\" -c \"npm run compile-sass\"",
     "dev": "npm-run-all -p run:*"
