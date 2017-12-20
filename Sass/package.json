@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "run:server":
-      "browser-sync start --server \"site-apeperia\" --files \"site-apeperia\" --reload-delay \"2000\"",
+      "browser-sync start --server \"site-apeperia\" --files \"site-apeperia/**/*.css\" \"site-apeperia/**/*.js\" \"site-apeperia/**/*.html\"",
     "compile-sass":
       "node-sass-chokidar --source-map true site-apeperia/css/ -o site-apeperia/css/",
     "run:watch-sass":
