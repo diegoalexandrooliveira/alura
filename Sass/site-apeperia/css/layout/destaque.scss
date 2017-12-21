@@ -5,6 +5,10 @@
   color: $cor-branca;
   height: 330px;
   padding-top: 10em;
+  @media #{$media-query-responsivo} {
+    font-size: 14px;
+    height: 250px;
+  }
 }
 
 .destaque p {

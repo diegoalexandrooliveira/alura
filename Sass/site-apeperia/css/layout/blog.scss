@@ -21,6 +21,9 @@
   width: 48%;
   display: inline-block;
   vertical-align: top;
+  @media #{$media-query-responsivo} {
+    width: auto;
+  }
 }
 
 .post-destaque {

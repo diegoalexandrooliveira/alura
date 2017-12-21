@@ -2,9 +2,18 @@ body {
   font-family: "Roboto Slab", serif;
 }
 
+form {
+  @media #{$media-query-responsivo} {
+    width: auto;
+  }
+}
+
 .container {
   width: 940px;
   margin: 0 auto;
+  @media #{$media-query-responsivo} {
+    width: 90%;
+  }
 }
 
 .titulo-secao {
