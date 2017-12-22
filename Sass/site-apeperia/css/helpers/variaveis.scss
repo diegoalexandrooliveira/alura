@@ -1,6 +1,5 @@
 $cor-padrao: darken(#943d36, 10%);
 $cor-auxiliar: lighten(#1e2c35, 10);
 $cor-branca: #fff;
-$tamanho-maximo-quebra: 980px;
 
-$media-query-responsivo: (max-width: $tamanho-maximo-quebra);
+$media-query-responsivo: "(max-width: 980px)";

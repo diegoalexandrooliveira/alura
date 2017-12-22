@@ -61,21 +61,21 @@
   height: 38px;
   font-size: 1.2em;
   @include borda-redonda();
-  @extend %sombra-padrao;
+  @include box-shadow(black 0px 2px 6.65px);
   margin-left: 2em;
 }
-
-.icone-check,
-.icone-x {
-  background: url(../imagens/sprite.png) no-repeat;
-  width: 18px;
-  height: 18px;
+@include all-sprite-sprites;
+.sprite-icone-ok,
+.sprite-icone-x {
+  // background: url(../imagens/sprites-se67caa9bde.png) no-repeat;
+  width: 20px;
+  height: 20px;
 }
 
-.icone-check {
-  background-position: -5px -5px;
-}
+// .icone-check {
+//   background-position: 0px 0px;
+// }
 
-.icone-x {
-  background-position: -33px -5px;
-}
+// .icone-x {
+//   background-position: 0px -23px;
+// }

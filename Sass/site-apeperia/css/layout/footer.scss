@@ -69,7 +69,7 @@ footer a {
 .social li {
   float: left;
 }
-
+@include all-rede-social-sprites;
 .social li a {
   display: block;
   width: 55px;
@@ -79,18 +79,18 @@ footer a {
 }
 
 .social a {
-  background-position: top;
-  background-size: 50px 50px;
+  // background-position: top;
+  // background-size: 50px 50px;
 }
 
-.social a[href*="facebook"] {
-  background-image: url(../imagens/facebook.png);
-}
+// .social a[href*="facebook"] {
+//   background-image: url(../imagens/facebook.png);
+// }
 
-.social a[href*="twitter"] {
-  background-image: url(../imagens/twitter.png);
-}
+// .social a[href*="twitter"] {
+//   background-image: url(../imagens/twitter.png);
+// }
 
-.social a[href*="instagram"] {
-  background-image: url(../imagens/instagram.png);
-}
+// .social a[href*="instagram"] {
+//   background-image: url(../imagens/instagram.png);
+// }

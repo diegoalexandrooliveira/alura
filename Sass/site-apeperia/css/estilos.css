@@ -1,10 +1,23 @@
+.sprite-sprite, .sprite-icone-ok, .sprite-icone-x {
+  background-image: url('/imagens/sprite-s1e035a9ecf.png');
+  background-repeat: no-repeat;
+}
+
+.plataformas-sprite, .plataformas-logo-android, .plataformas-logo-apple, .plataformas-logo-blackberry, .plataformas-logo-windows {
+  background-image: url('/imagens/plataformas-s91620aa4cf.png');
+  background-repeat: no-repeat;
+}
+
+.rede-social-sprite, .rede-social-facebook, .rede-social-instagram, .rede-social-twitter {
+  background-image: url('/imagens/rede-social-s2ef6a8a388.png');
+  background-repeat: no-repeat;
+}
+
 .plataformas li, .social li a {
   text-indent: -9999px;
   overflow: hidden;
-  background-repeat: no-repeat; }
-
-.plano button, .contato button, .destaque button {
-  box-shadow: 0 2px 6.65px 0.35px rgba(0, 0, 0, 0.3); }
+  background-repeat: no-repeat;
+}
 
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 /**
@@ -18,13 +31,15 @@ html {
   -ms-text-size-adjust: 100%;
   /* 2 */
   -webkit-text-size-adjust: 100%;
-  /* 2 */ }
+  /* 2 */
+}
 
 /**
  * Remove default margin.
  */
 body {
-  margin: 0; }
+  margin: 0;
+}
 
 /* HTML5 display definitions
    ========================================================================== */
@@ -47,7 +62,8 @@ menu,
 nav,
 section,
 summary {
-  display: block; }
+  display: block;
+}
 
 /**
  * 1. Correct `inline-block` display not defined in IE 8/9.
@@ -60,7 +76,8 @@ video {
   display: inline-block;
   /* 1 */
   vertical-align: baseline;
-  /* 2 */ }
+  /* 2 */
+}
 
 /**
  * Prevent modern browsers from displaying `audio` without controls.
@@ -68,7 +85,8 @@ video {
  */
 audio:not([controls]) {
   display: none;
-  height: 0; }
+  height: 0;
+}
 
 /**
  * Address `[hidden]` styling not present in IE 8/9/10.
@@ -76,7 +94,8 @@ audio:not([controls]) {
  */
 [hidden],
 template {
-  display: none; }
+  display: none;
+}
 
 /* Links
    ========================================================================== */
@@ -84,14 +103,16 @@ template {
  * Remove the gray background color from active links in IE 10.
  */
 a {
-  background-color: transparent; }
+  background-color: transparent;
+}
 
 /**
  * Improve readability when focused and also mouse hovered in all browsers.
  */
 a:active,
 a:hover {
-  outline: 0; }
+  outline: 0;
+}
 
 /* Text-level semantics
    ========================================================================== */
@@ -99,20 +120,23 @@ a:hover {
  * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
  */
 abbr[title] {
-  border-bottom: 1px dotted; }
+  border-bottom: 1px dotted;
+}
 
 /**
  * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
  */
 b,
 strong {
-  font-weight: bold; }
+  font-weight: bold;
+}
 
 /**
  * Address styling not present in Safari and Chrome.
  */
 dfn {
-  font-style: italic; }
+  font-style: italic;
+}
 
 /**
  * Address variable `h1` font-size and margin within `section` and `article`
@@ -120,20 +144,23 @@ dfn {
  */
 h1 {
   font-size: 2em;
-  margin: 0.67em 0; }
+  margin: 0.67em 0;
+}
 
 /**
  * Address styling not present in IE 8/9.
  */
 mark {
   background: #ff0;
-  color: #000; }
+  color: #000;
+}
 
 /**
  * Address inconsistent and variable font size in all browsers.
  */
 small {
-  font-size: 80%; }
+  font-size: 80%;
+}
 
 /**
  * Prevent `sub` and `sup` affecting `line-height` in all browsers.
@@ -143,13 +170,16 @@ sup {
   font-size: 75%;
   line-height: 0;
   position: relative;
-  vertical-align: baseline; }
+  vertical-align: baseline;
+}
 
 sup {
-  top: -0.5em; }
+  top: -0.5em;
+}
 
 sub {
-  bottom: -0.25em; }
+  bottom: -0.25em;
+}
 
 /* Embedded content
    ========================================================================== */
@@ -157,13 +187,15 @@ sub {
  * Remove border when inside `a` element in IE 8/9/10.
  */
 img {
-  border: 0; }
+  border: 0;
+}
 
 /**
  * Correct overflow not hidden in IE 9/10/11.
  */
 svg:not(:root) {
-  overflow: hidden; }
+  overflow: hidden;
+}
 
 /* Grouping content
    ========================================================================== */
@@ -171,7 +203,8 @@ svg:not(:root) {
  * Address margin not present in IE 8/9 and Safari.
  */
 figure {
-  margin: 1em 40px; }
+  margin: 1em 40px;
+}
 
 /**
  * Address differences between Firefox and other browsers.
@@ -179,13 +212,15 @@ figure {
 hr {
   -moz-box-sizing: content-box;
   box-sizing: content-box;
-  height: 0; }
+  height: 0;
+}
 
 /**
  * Contain overflow in all browsers.
  */
 pre {
-  overflow: auto; }
+  overflow: auto;
+}
 
 /**
  * Address odd `em`-unit font size rendering in all browsers.
@@ -195,7 +230,8 @@ kbd,
 pre,
 samp {
   font-family: monospace, monospace;
-  font-size: 1em; }
+  font-size: 1em;
+}
 
 /* Forms
    ========================================================================== */
@@ -219,13 +255,15 @@ textarea {
   font: inherit;
   /* 2 */
   margin: 0;
-  /* 3 */ }
+  /* 3 */
+}
 
 /**
  * Address `overflow` set to `hidden` in IE 8/9/10/11.
  */
 button {
-  overflow: visible; }
+  overflow: visible;
+}
 
 /**
  * Address inconsistent `text-transform` inheritance for `button` and `select`.
@@ -235,7 +273,8 @@ button {
  */
 button,
 select {
-  text-transform: none; }
+  text-transform: none;
+}
 
 /**
  * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
@@ -251,14 +290,16 @@ input[type="submit"] {
   -webkit-appearance: button;
   /* 2 */
   cursor: pointer;
-  /* 3 */ }
+  /* 3 */
+}
 
 /**
  * Re-set default cursor for disabled elements.
  */
 button[disabled],
 html input[disabled] {
-  cursor: default; }
+  cursor: default;
+}
 
 /**
  * Remove inner padding and border in Firefox 4+.
@@ -266,14 +307,16 @@ html input[disabled] {
 button::-moz-focus-inner,
 input::-moz-focus-inner {
   border: 0;
-  padding: 0; }
+  padding: 0;
+}
 
 /**
  * Address Firefox 4+ setting `line-height` on `input` using `!important` in
  * the UA stylesheet.
  */
 input {
-  line-height: normal; }
+  line-height: normal;
+}
 
 /**
  * It's recommended that you don't attempt to style these elements.
@@ -287,7 +330,8 @@ input[type="radio"] {
   box-sizing: border-box;
   /* 1 */
   padding: 0;
-  /* 2 */ }
+  /* 2 */
+}
 
 /**
  * Fix the cursor style for Chrome's increment/decrement buttons. For certain
@@ -296,7 +340,8 @@ input[type="radio"] {
  */
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
-  height: auto; }
+  height: auto;
+}
 
 /**
  * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
@@ -309,7 +354,8 @@ input[type="search"] {
   -moz-box-sizing: content-box;
   -webkit-box-sizing: content-box;
   /* 2 */
-  box-sizing: content-box; }
+  box-sizing: content-box;
+}
 
 /**
  * Remove inner padding and search cancel button in Safari and Chrome on OS X.
@@ -318,7 +364,8 @@ input[type="search"] {
  */
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none; }
+  -webkit-appearance: none;
+}
 
 /**
  * Define consistent border, margin, and padding.
@@ -326,7 +373,8 @@ input[type="search"]::-webkit-search-decoration {
 fieldset {
   border: 1px solid #c0c0c0;
   margin: 0 2px;
-  padding: 0.35em 0.625em 0.75em; }
+  padding: 0.35em 0.625em 0.75em;
+}
 
 /**
  * 1. Correct `color` not being inherited in IE 8/9/10/11.
@@ -336,20 +384,23 @@ legend {
   border: 0;
   /* 1 */
   padding: 0;
-  /* 2 */ }
+  /* 2 */
+}
 
 /**
  * Remove default vertical scrollbar in IE 8/9/10/11.
  */
 textarea {
-  overflow: auto; }
+  overflow: auto;
+}
 
 /**
  * Don't inherit the `font-weight` (applied by a rule above).
  * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
  */
 optgroup {
-  font-weight: bold; }
+  font-weight: bold;
+}
 
 /* Tables
    ========================================================================== */
@@ -358,145 +409,187 @@ optgroup {
  */
 table {
   border-collapse: collapse;
-  border-spacing: 0; }
+  border-spacing: 0;
+}
 
 td,
 th {
-  padding: 0; }
+  padding: 0;
+}
 
 header {
   border-top: 5px solid #6f2e28;
   background: rgba(48, 71, 86, 0.8);
   height: 90px;
   width: 100%;
-  position: absolute; }
-  @media (max-width: 980px) {
-    header {
-      height: auto; }
-      header h1 {
-        max-width: 50%;
-        margin: 0 auto; }
-        header h1 img {
-          max-width: 100%;
-          margin: 0.5em auto;
-          display: block; } }
+  position: absolute;
+}
+@media (max-width: 980px) {
+  header {
+    height: auto;
+  }
+  header h1 {
+    max-width: 50%;
+    margin: 0 auto;
+  }
+  header h1 img {
+    max-width: 100%;
+    margin: 0.5em auto;
+    display: block;
+  }
+}
 
 header .container {
-  position: relative; }
-  @media (max-width: 980px) {
-    header .container {
-      position: static; } }
+  position: relative;
+}
+@media (max-width: 980px) {
+  header .container {
+    position: static;
+  }
+}
 
 .menu-principal {
   position: absolute;
   right: 0;
   top: -0.5em;
   font-size: 1.2em;
-  font-weight: lighter; }
-  @media (max-width: 980px) {
-    .menu-principal {
-      position: static;
-      display: block;
-      text-align: center;
-      width: auto; } }
-  .menu-principal ul {
-    padding-left: 0; }
+  font-weight: lighter;
+}
+@media (max-width: 980px) {
+  .menu-principal {
+    position: static;
+    display: block;
+    text-align: center;
+    width: auto;
+  }
+}
+.menu-principal ul {
+  padding-left: 0;
+}
+.menu-principal li {
+  display: inline-block;
+  width: 5em;
+}
+@media (max-width: 980px) {
   .menu-principal li {
-    display: inline-block;
-    width: 5em; }
-    @media (max-width: 980px) {
-      .menu-principal li {
-        margin: 0.4em;
-        width: auto; } }
-  .menu-principal a {
-    color: #fff;
-    text-decoration: none; }
-    .menu-principal a:hover {
-      text-decoration: underline; }
+    margin: 0.4em;
+    width: auto;
+  }
+}
+.menu-principal a {
+  color: #fff;
+  text-decoration: none;
+}
+.menu-principal a:hover {
+  text-decoration: underline;
+}
 
 body {
-  font-family: "Roboto Slab", serif; }
+  font-family: "Roboto Slab", serif;
+}
 
 @media (max-width: 980px) {
   form {
-    width: auto; } }
+    width: auto;
+  }
+}
 
 .container {
   width: 940px;
-  margin: 0 auto; }
-  @media (max-width: 980px) {
-    .container {
-      width: 90%; } }
+  margin: 0 auto;
+}
+@media (max-width: 980px) {
+  .container {
+    width: 90%;
+  }
+}
 
 .titulo-secao {
   text-decoration: underline;
   font-size: 2em;
-  text-align: center; }
+  text-align: center;
+}
 
 .sobre,
 .planos,
 .blog,
 .contato {
-  padding: 3em 0 6em 0; }
+  padding: 3em 0 6em 0;
+}
 
 h2 {
-  margin-top: 0; }
+  margin-top: 0;
+}
 
 .sobre {
-  background: #ebebeb; }
+  background: #ebebeb;
+}
 
 .duas-colunas {
   -webkit-column-count: 2;
   -moz-column-count: 2;
   column-count: 2;
-  columns: 1; }
+  columns: 1;
+}
 
 .duas-colunas h3 {
-  margin: 0; }
+  margin: 0;
+}
 
 .sobre p {
-  font: 0.9em/1.8 sans-serif; }
+  font: 0.9em/1.8 sans-serif;
+}
 
 .sobre p:first-child {
-  margin-bottom: 3em; }
+  margin-bottom: 3em;
+}
 
 .plataformas {
-  padding: 0; }
+  padding: 0;
+}
+
+.plataformas-logo-android {
+  background-position: 0 0;
+}
+
+.plataformas-logo-apple {
+  background-position: 0 -80px;
+}
+
+.plataformas-logo-blackberry {
+  background-position: 0 -161px;
+}
+
+.plataformas-logo-windows {
+  background-position: 0 -226px;
+}
 
 .plataformas li {
   display: inline-block;
-  width: 50px;
-  height: 60px;
-  background-position: center;
-  margin: 1em 1.5em 0 0; }
-
-.plataformas li:nth-child(1) {
-  background-image: url(../imagens/logo-apple.png); }
-
-.plataformas li:nth-child(2) {
-  background-image: url(../imagens/logo-android.png); }
-
-.plataformas li:nth-child(3) {
-  background-image: url(../imagens/logo-windows.png); }
-
-.plataformas li:nth-child(4) {
-  background-image: url(../imagens/logo-blackberry.png); }
+  width: 65px;
+  height: 65px;
+  margin: 1em 1.5em 0 0;
+}
 
 .planos {
-  background: #304756; }
+  background: #304756;
+}
 
 .planos h2 {
-  color: #fff; }
+  color: #fff;
+}
 
 .plano {
   background: #fff;
   width: 18em;
   display: inline-block;
   margin: 1em 0 0 1.4em;
-  padding-bottom: 2em; }
+  padding-bottom: 2em;
+}
 
 .plano:hover {
-  background: #dedede; }
+  background: #dedede;
+}
 
 .plano h3 {
   color: #fff;
@@ -505,25 +598,31 @@ h2 {
   text-align: center;
   height: 2em;
   padding-top: 0.6em;
-  margin-top: 0; }
+  margin-top: 0;
+}
 
 .plano div {
   text-align: center;
   color: #6f2e28;
-  font-size: 2.75em; }
+  font-size: 2.75em;
+}
 
 .itens-plano {
-  padding-left: 1.2em; }
-  .itens-plano li {
-    font-size: 1em;
-    list-style: none;
-    border-bottom: 1px solid #acacac;
-    padding: 0.5em;
-    width: 14.8em; }
-    .itens-plano li:last-child {
-      border: 0; }
-  .itens-plano span {
-    float: right; }
+  padding-left: 1.2em;
+}
+.itens-plano li {
+  font-size: 1em;
+  list-style: none;
+  border-bottom: 1px solid #acacac;
+  padding: 0.5em;
+  width: 14.8em;
+}
+.itens-plano li:last-child {
+  border: 0;
+}
+.itens-plano span {
+  float: right;
+}
 
 .plano button {
   background: #6f2e28;
@@ -532,25 +631,33 @@ h2 {
   width: 210px;
   height: 38px;
   font-size: 1.2em;
+  -moz-border-radius: 0.3em;
   -webkit-border-radius: 0.3em;
   border-radius: 0.3em;
-  margin-left: 2em; }
+  -moz-box-shadow: black 0px 2px 6.65px;
+  -webkit-box-shadow: black 0px 2px 6.65px;
+  box-shadow: black 0px 2px 6.65px;
+  margin-left: 2em;
+}
 
-.icone-check,
-.icone-x {
-  background: url(../imagens/sprite.png) no-repeat;
-  width: 18px;
-  height: 18px; }
+.sprite-icone-ok {
+  background-position: 0 0;
+}
 
-.icone-check {
-  background-position: -5px -5px; }
+.sprite-icone-x {
+  background-position: 0 -23px;
+}
 
-.icone-x {
-  background-position: -33px -5px; }
+.sprite-icone-ok,
+.sprite-icone-x {
+  width: 20px;
+  height: 20px;
+}
 
 .blog {
   display: block;
-  position: relative; }
+  position: relative;
+}
 
 .blog::after {
   content: "";
@@ -562,23 +669,29 @@ h2 {
   bottom: 0;
   right: 0;
   position: absolute;
-  z-index: -1; }
+  z-index: -1;
+}
 
 .post-destaque,
 .posts-antigos {
   width: 48%;
   display: inline-block;
-  vertical-align: top; }
-  @media (max-width: 980px) {
-    .post-destaque,
-    .posts-antigos {
-      width: auto; } }
+  vertical-align: top;
+}
+@media (max-width: 980px) {
+  .post-destaque,
+  .posts-antigos {
+    width: auto;
+  }
+}
 
 .post-destaque {
-  margin-right: 2em; }
+  margin-right: 2em;
+}
 
 .post-destaque img {
-  width: 100%; }
+  width: 100%;
+}
 
 .posts-antigos a {
   text-decoration: none;
@@ -586,27 +699,33 @@ h2 {
   background: url(../imagens/icone-relogio.png) left center no-repeat;
   padding-left: 2.5em;
   height: 1.7em;
-  display: block; }
+  display: block;
+}
 
 .posts-antigos a:hover {
-  text-decoration: underline; }
+  text-decoration: underline;
+}
 
 .contato input,
 .contato button {
-  display: block; }
+  display: block;
+}
 
 form {
   margin: 0 auto;
-  width: 50%; }
+  width: 50%;
+}
 
 .contato input,
 textarea {
   width: 100%;
   margin-bottom: 0.8em;
   padding: 4px 8px;
+  -moz-border-radius: 0.3em;
   -webkit-border-radius: 0.3em;
   border-radius: 0.3em;
-  border: 2px solid #ccc; }
+  border: 2px solid #ccc;
+}
 
 .contato button {
   margin: 0 auto;
@@ -616,12 +735,18 @@ textarea {
   width: 210px;
   height: 38px;
   font-size: 1.2em;
+  -moz-border-radius: 0.3em;
   -webkit-border-radius: 0.3em;
-  border-radius: 0.3em; }
+  border-radius: 0.3em;
+  -moz-box-shadow: black 0px 2px 6.65px;
+  -webkit-box-shadow: black 0px 2px 6.65px;
+  box-shadow: black 0px 2px 6.65px;
+}
 
 footer {
   display: block;
-  position: relative; }
+  position: relative;
+}
 
 footer::after {
   content: "";
@@ -632,7 +757,8 @@ footer::after {
   bottom: 0;
   right: 0;
   position: absolute;
-  z-index: -1; }
+  z-index: -1;
+}
 
 footer::before {
   content: "";
@@ -642,61 +768,71 @@ footer::before {
   bottom: 0;
   right: 0;
   position: absolute;
-  z-index: -1; }
+  z-index: -1;
+}
 
 footer .container {
   padding-top: 3em;
   height: 6.5em;
-  position: relative; }
+  position: relative;
+}
 
 footer .container img {
-  width: 250px; }
+  width: 250px;
+}
 
 .menu-rodape,
 .social {
-  position: absolute; }
+  position: absolute;
+}
 
 .menu-rodape ul li {
   display: inline-block;
-  margin-left: 2em; }
+  margin-left: 2em;
+}
 
 .menu-rodape {
   top: 1em;
-  right: 0; }
+  right: 0;
+}
 
 .social {
   bottom: 0;
-  right: 0; }
+  right: 0;
+}
 
 .menu-rodape li,
 .social li {
-  display: inline; }
+  display: inline;
+}
 
 footer a {
   color: #fff;
-  text-decoration: none; }
+  text-decoration: none;
+}
 
 .social li {
-  float: left; }
+  float: left;
+}
+
+.rede-social-facebook {
+  background-position: 0 0;
+}
+
+.rede-social-instagram {
+  background-position: 0 -75px;
+}
+
+.rede-social-twitter {
+  background-position: 0 -150px;
+}
 
 .social li a {
   display: block;
   width: 55px;
   height: 55px;
-  margin-left: 1em; }
-
-.social a {
-  background-position: top;
-  background-size: 50px 50px; }
-
-.social a[href*="facebook"] {
-  background-image: url(../imagens/facebook.png); }
-
-.social a[href*="twitter"] {
-  background-image: url(../imagens/twitter.png); }
-
-.social a[href*="instagram"] {
-  background-image: url(../imagens/instagram.png); }
+  margin-left: 1em;
+}
 
 .destaque {
   background: url(../imagens/destaque.jpg) center bottom repeat-x;
@@ -704,23 +840,29 @@ footer a {
   background-size: cover;
   color: #fff;
   height: 330px;
-  padding-top: 10em; }
-  @media (max-width: 980px) {
-    .destaque {
-      font-size: 14px;
-      height: 250px; } }
+  padding-top: 10em;
+}
+@media (max-width: 980px) {
+  .destaque {
+    font-size: 14px;
+    height: 250px;
+  }
+}
 
 .destaque p {
-  width: 30em; }
+  width: 30em;
+}
 
 .destaque p:first-child {
   width: 30em;
   font-size: 1.3em;
-  line-height: 1.1; }
+  line-height: 1.1;
+}
 
 .destaque p:first-child:first-line {
   font-size: 2.2em;
-  font-weight: bold; }
+  font-weight: bold;
+}
 
 .destaque button {
   margin-top: 1em;
@@ -728,42 +870,11 @@ footer a {
   border: 0;
   padding: 0.6em;
   font-size: 1.2em;
+  -moz-border-radius: 50px;
   -webkit-border-radius: 50px;
   border-radius: 50px;
-  font-weight: bold; }
-
-.destaque {
-  background: url(../imagens/destaque.jpg) center bottom repeat-x;
-  -webkit-background-size: cover;
-  background-size: cover;
-  color: #fff;
-  height: 330px;
-  padding-top: 10em; }
-  @media (max-width: 980px) {
-    .destaque {
-      font-size: 14px;
-      height: 250px; } }
-
-.destaque p {
-  width: 30em; }
-
-.destaque p:first-child {
-  width: 30em;
-  font-size: 1.3em;
-  line-height: 1.1; }
-
-.destaque p:first-child:first-line {
-  font-size: 2.2em;
-  font-weight: bold; }
-
-.destaque button {
-  margin-top: 1em;
-  background: #6f2e28;
-  border: 0;
-  padding: 0.6em;
-  font-size: 1.2em;
-  -webkit-border-radius: 50px;
-  border-radius: 50px;
-  font-weight: bold; }
-
-/*# sourceMappingURL=estilos.css.map */
+  -moz-box-shadow: black 0px 2px 6.65px;
+  -webkit-box-shadow: black 0px 2px 6.65px;
+  box-shadow: black 0px 2px 6.65px;
+  font-weight: bold;
+}
