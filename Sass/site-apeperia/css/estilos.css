@@ -506,7 +506,7 @@ body {
 
 .titulo-secao {
   text-decoration: underline;
-  font-size: 2em;
+  font-size: 1.8em;
   text-align: center;
 }
 
@@ -772,7 +772,7 @@ footer::before {
 }
 
 footer .container {
-  padding-top: 2em;
+  padding-top: 32px;
   height: 6.5rem;
   position: relative;
 }

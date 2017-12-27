@@ -18,7 +18,7 @@ Previsão Inicio: 20/11/2017
 Previsão Fim: 29/12/2017	82h
 
 Curso Gulp: automação de tarefas front-end	10h -- feito
-Curso Sass e Compass: Descomplicando o CSS	8h
+Curso Sass e Compass: Descomplicando o CSS	8h -- feito
 Curso Bootstrap: criação de uma single-page responsiva	12h
 Curso Angular 2: webapps ainda mais poderosas parte 1	18h
 Curso Angular 2: webapps ainda mais poderosas parte 2	18h

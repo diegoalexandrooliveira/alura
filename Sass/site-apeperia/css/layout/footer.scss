@@ -27,8 +27,7 @@ footer::before {
 }
 
 footer .container {
-  $tamanho: 10px;
-  padding-top: 2em;
+  padding-top: multiplicador-pela-fonte(2);
   height: 6.5rem;
   position: relative;
 }
