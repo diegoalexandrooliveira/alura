@@ -6,13 +6,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
 </head>
 
 <body>
-    <h2>Sobre nós</h2>
+    <div class="container">
+        <h2>Sobre nós</h2>
+        <img src="img/empresa.jpg" class="img-responsive" alt="">
+
+        <div class="panel-group" id="paineis-sobre">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 data-toggle="collapse" data-target="#primeiro-paragrafo" class="panel-title" data-parent="#paineis-sobre">Desde 1935</h3>
+                </div>
+                <div class="collapse in" id="primeiro-paragrafo">
+                    <div class="panel-body">
+                        <p>Desde 1935 trazendo casas, mansões e prédios lindos para o mundo.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 data-toggle="collapse" data-target="#segundo-paragrafo" class="panel-title" data-parent="#paineis-sobre">Preços acessíveis</h3>
+                </div>
+                <div class="collapse" id="segundo-paragrafo">
+                    <div class="panel-body">
+                        <p>Preços a partir de R$ 1000,00.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 data-toggle="collapse" data-target="#terceiro-paragrafo" class="panel-title" data-parent="#paineis-sobre">Alegria em colaborar para um mundo mais bonito</h3>
+                </div>
+                <div class="collapse" id="terceiro-paragrafo">
+                    <div class="panel-body">
+                        <p>Trazendo alegria para a vida das pessoas que tem dinheiro para gastar.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
