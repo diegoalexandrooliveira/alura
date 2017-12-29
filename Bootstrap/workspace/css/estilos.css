@@ -10,7 +10,29 @@
   margin-bottom: 0;
   font-size: 24px;
 }
+.select-situacao,
+.radio-buttons {
+  width: 50%;
+  display: inline-block;
+  vertical-align: top;
+}
 
-.carousel-control{
+.carousel-control {
   font-size: 2em;
 }
+
+.radio-buttons .radio:first-child {
+  margin-top: 0;
+}
+
+/* .carousel-inner > .item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+.carousel .item {
+  min-height: 200px;
+} */
