@@ -6,22 +6,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="js/jquery.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/estilos.css">
 </head>
 
 <body>
-    <ul>
-        <li><a href="#sobre-nos">Sobre nós</a></li>
-        <li><a href="#projetos">Nosso projetos</a></li>
-        <li><a href="#depoimentos">Depoimentos</a></li>
-        <li><a href="#video">Video</a></li>
-        <li><a href="#contato">Contato</a></li>
-
-    </ul>
-
+    <header>
+        <nav class="navbar navbar-default">
+            <div class="container todo-menu">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="#" class="navbar-brand">TopCasaFina Arquitetura</a>
+                </div>
+                <div class="collapse navbar-collapse" id="menu">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#sobre-nos">Sobre nós</a></li>
+                        <li><a href="#projetos">Nosso projetos</a></li>
+                        <li><a href="#depoimentos">Depoimentos</a></li>
+                        <li><a href="#video">Video</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="banner-principal">
+            <h1>TopCasaFina Arquitetura</h1>
+            <p>Projetando a casa dos sonhos desde 2000 A.C</p>
+            <a class="btn btn-primary btn-lg" href="#contato">Contate-nos agora</a>
+        </div>
+    </header>
 
     <section class="container" id="sobre-nos">
         <h2>Sobre nós</h2>
@@ -226,4 +244,7 @@
     </footer>
 </body>
 
+<script src="js/jquery.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="js/navbar-fix.js"></script>
 </html>
