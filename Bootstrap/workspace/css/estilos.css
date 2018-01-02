@@ -25,6 +25,16 @@
   margin-top: 0;
 }
 
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 1.5em;
+}
+
+footer address:last-child {
+  margin-bottom: 0;
+}
+
 /* .carousel-inner > .item > img {
   position: absolute;
   top: 0;
