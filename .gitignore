@@ -2,3 +2,5 @@ gulp/projeto/node_modules/
 Sass/node_modules/
 Sass/site-apeperia/.sass-cache
 Bootstrap/node_modules/
+Angular2/alurapic/client/node_modules
+Angular2/alurapic/server/node_modules
