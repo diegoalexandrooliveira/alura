@@ -19,6 +19,7 @@
   "devDependencies": {
     "browser-sync": "^2.23.2",
     "npm-run-all": "^4.1.2",
+    "ts-node": "^4.1.0",
     "typescript": "2.3.4"
   }
 }
