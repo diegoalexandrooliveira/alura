@@ -13,7 +13,7 @@ export class ListagemComponent {
     //   this.fotos = res.json();
     // });
     http
-      .get("http://localhost:3001/v1/fotos")
+      .get("v1/fotos")
       .map(res => res.json())
       .subscribe(
         fotosJson => (this.fotos = fotosJson),

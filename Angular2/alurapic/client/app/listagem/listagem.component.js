@@ -19,7 +19,7 @@ var ListagemComponent = (function () {
         //   this.fotos = res.json();
         // });
         http
-            .get("http://localhost:3001/v1/fotos")
+            .get("v1/fotos")
             .map(function (res) { return res.json(); })
             .subscribe(function (fotosJson) { return (_this.fotos = fotosJson); }, function (erro) { return console.log(erro); });
     }
