@@ -13,7 +13,7 @@
  */
 module.exports = {
   ui: {
-    port: 3001
+    port: 3002
   },
   files: ["../client/**/*.css", "../client/**/*.js", "../client/**/*.html"],
   watchEvents: ["change"],
@@ -26,7 +26,14 @@ module.exports = {
   server: "../client",
   proxy: false,
   port: 3000,
-  middleware: false,
+  middleware: function(req, res, next) {
+    if (req.url === "/cadastro") {
+      req.url = "/index.html";
+    } else if (req.url === "/") {
+      req.url = "/index.html";
+    }
+    return next();
+  },
   serveStatic: [],
   ghostMode: {
     clicks: true,
