@@ -1,1 +1,23 @@
 <h1 class="text-center">Cadastro de fotos</h1>
+<div class="container">
+    <form class="row" (submit)="cadastrar($event)">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="titulo">Título</label>
+                <!-- <input [value]="foto.titulo" (input)="foto.titulo = $event.target.value" type="text" class="form-control" autocomplete="off" id="titulo"> -->
+                <input [(ngModel)]="foto.titulo" name="titulo" type="text" class="form-control" autocomplete="off" id="titulo">
+            </div>
+            <div class="form-group">
+                <label for="url">URL</label>
+                <input [(ngModel)]="foto.url" name="url" type="text" class="form-control" autocomplete="off" id="url">
+            </div>
+            <div class="form-group">
+                <label for="descricao">Descrição</label>
+                <textarea [(ngModel)]="foto.descricao" name="descricao" type="text" class="form-control" autocomplete="off" id="descricao"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Salvar</button>
+            <a [routerLink]="['']" class="btn btn-primary">Voltar</a>
+        </div>
+    </form>
+</div>

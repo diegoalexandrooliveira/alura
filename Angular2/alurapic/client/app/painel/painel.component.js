@@ -13,6 +13,12 @@ var core_1 = require("@angular/core");
 var PainelComponent = (function () {
     function PainelComponent() {
     }
+    PainelComponent.prototype.ngOnInit = function () {
+        //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+        //Add 'implements OnInit' to the class.
+        this.titulo =
+            this.titulo.length > 7 ? this.titulo.substr(0, 7) + "..." : this.titulo;
+    };
     return PainelComponent;
 }());
 __decorate([
