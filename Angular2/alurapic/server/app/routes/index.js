@@ -23,8 +23,4 @@ module.exports = function(app) {
 
   app.get("/v1/grupos", api.listaGrupos);
   app.get("/v1/fotos/grupo/:grupoId", api.listaPorGrupo);
-
-  app.all("/*", function(req, res) {
-    res.sendFile(path.join(app.get("clientPath"), "index.html"));
-  });
 };
