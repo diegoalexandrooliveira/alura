@@ -10,19 +10,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var http_1 = require("@angular/http");
+var foto_service_1 = require("../foto/foto.service");
 var ListagemComponent = (function () {
-    function ListagemComponent(http) {
-        var _this = this;
+    function ListagemComponent(service) {
         this.fotos = [];
-        // http.get("http://localhost:3001/v1/fotos").subscribe(res => {
-        //   this.fotos = res.json();
-        // });
-        http
-            .get("http://" + window.location.hostname + ":3000/v1/fotos")
-            .map(function (res) { return res.json(); })
-            .subscribe(function (fotosJson) { return (_this.fotos = fotosJson); }, function (erro) { return console.log(erro); });
+        this.service = service;
+        this.listar();
     }
+    ListagemComponent.prototype.listar = function () {
+        var _this = this;
+        this.service.lista().subscribe(function (fotos) {
+            _this.fotos = fotos;
+        }, function (erro) { return console.log(erro); });
+    };
+    ListagemComponent.prototype.remover = function (foto) {
+        this.service
+            .remover(foto._id)
+            .subscribe(function () { return console.log("Removido com sucesso"); }, function (erro) { return console.log("Erro " + erro); });
+    };
     return ListagemComponent;
 }());
 ListagemComponent = __decorate([
@@ -31,7 +36,7 @@ ListagemComponent = __decorate([
         selector: "listagem",
         templateUrl: "./listagem.component.html"
     }),
-    __metadata("design:paramtypes", [http_1.Http])
+    __metadata("design:paramtypes", [foto_service_1.FotoService])
 ], ListagemComponent);
 exports.ListagemComponent = ListagemComponent;
 //# sourceMappingURL=listagem.component.js.map

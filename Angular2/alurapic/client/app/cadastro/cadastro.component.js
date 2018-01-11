@@ -11,12 +11,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var foto_component_1 = require("../foto/foto.component");
-var http_1 = require("@angular/http");
 var forms_1 = require("@angular/forms");
+var foto_service_1 = require("../foto/foto.service");
 var CadastroComponent = (function () {
-    function CadastroComponent(http, formBuilder) {
+    function CadastroComponent(formBuilder, service) {
         this.foto = new foto_component_1.FotoComponent();
-        this.http = http;
         this.meuForm = formBuilder.group({
             titulo: [
                 "",
@@ -25,20 +24,15 @@ var CadastroComponent = (function () {
             url: ["", forms_1.Validators.required],
             descricao: [""]
         });
+        this.service = service;
     }
     CadastroComponent.prototype.cadastrar = function (event) {
         var _this = this;
         event.preventDefault();
-        var headers = new http_1.Headers();
-        headers.append("Content-Type", "application/json");
-        this.http
-            .post("http://" + window.location.hostname + ":3000/v1/fotos", JSON.stringify(this.foto), {
-            headers: headers
-        })
-            .subscribe(function () {
+        this.service.cadastrar(this.foto).subscribe(function () {
+            console.log("Foto incluida com sucesso.");
             _this.foto = new foto_component_1.FotoComponent();
-            console.log("Foto salva com sucesso");
-        }, function (erro) { return console.log(erro); });
+        }, function (erro) { return console.log("Erro ao incluir a foto. " + erro); });
     };
     return CadastroComponent;
 }());
@@ -48,7 +42,7 @@ CadastroComponent = __decorate([
         selector: "cadastro",
         templateUrl: "./cadastro.component.html"
     }),
-    __metadata("design:paramtypes", [http_1.Http, forms_1.FormBuilder])
+    __metadata("design:paramtypes", [forms_1.FormBuilder, foto_service_1.FotoService])
 ], CadastroComponent);
 exports.CadastroComponent = CadastroComponent;
 //# sourceMappingURL=cadastro.component.js.map

@@ -1,32 +1,31 @@
-import { Http, Headers } from "@angular/http";
+import { Http, Headers, Response } from "@angular/http";
 import { FotoComponent } from "./foto.component";
+import { Observable } from "rxjs";
+import { Injectable } from "@angular/core";
 
+@Injectable()
 export class FotoService {
   http: Http;
   headers: Headers;
-  servidor: string;
+  url: string;
 
   constructor(http: Http) {
     this.http = http;
     this.headers = new Headers();
     this.headers.append("Content-Type", "application/json");
-    this.servidor = "http://" + window.location.hostname + ":3000";
+    this.url = "http://" + window.location.hostname + ":3000";
   }
-  cadastrar(foto: FotoComponent): void {
-    this.http
-      .post(this.servidor + "/v1/fotos", JSON.stringify(foto), {
-        headers: this.headers
-      })
-      .subscribe(
-        () => {
-          foto = new FotoComponent();
-          console.log("Foto salva com sucesso");
-        },
-        erro => console.log(erro)
-      );
+  cadastrar(foto: FotoComponent): Observable<Response> {
+    return this.http.post(this.url + "/v1/fotos", JSON.stringify(foto), {
+      headers: this.headers
+    });
   }
 
-  lista(): FotoComponent[] {
-    return new Array<FotoComponent>();
+  lista(): Observable<FotoComponent[]> {
+    return this.http.get(this.url + "/v1/fotos").map(res => res.json());
+  }
+
+  remover(id: string): Observable<Response> {
+    return this.http.delete(this.url + "/v1/fotos/" + id);
   }
 }

@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
-import { Http } from "@angular/http";
+import { FotoService } from "../foto/foto.service";
+import { FotoComponent } from "../foto/foto.component";
 
 @Component({
   moduleId: module.id,
@@ -7,17 +8,28 @@ import { Http } from "@angular/http";
   templateUrl: "./listagem.component.html"
 })
 export class ListagemComponent {
-  fotos: Object[] = [];
-  constructor(http: Http) {
-    // http.get("http://localhost:3001/v1/fotos").subscribe(res => {
-    //   this.fotos = res.json();
-    // });
-    http
-      .get("http://" + window.location.hostname + ":3000/v1/fotos")
-      .map(res => res.json())
+  fotos: FotoComponent[] = [];
+  service: FotoService;
+  constructor(service: FotoService) {
+    this.service = service;
+    this.listar();
+  }
+
+  listar(): void {
+    this.service.lista().subscribe(
+      fotos => {
+        this.fotos = fotos;
+      },
+      erro => console.log(erro)
+    );
+  }
+
+  remover(foto: FotoComponent) {
+    this.service
+      .remover(foto._id)
       .subscribe(
-        fotosJson => (this.fotos = fotosJson),
-        erro => console.log(erro)
+        () => console.log("Removido com sucesso"),
+        erro => console.log("Erro " + erro)
       );
   }
 }

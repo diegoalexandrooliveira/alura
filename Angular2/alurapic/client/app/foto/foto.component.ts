@@ -7,6 +7,7 @@ import { Component, Input } from "@angular/core";
   styleUrls: ["./foto.component.css"]
 })
 export class FotoComponent {
+  _id: string;
   @Input() titulo: string;
   @Input() url: string;
   descricao: string;
