@@ -16,9 +16,19 @@ export class FotoService {
     this.url = "http://" + window.location.hostname + ":3000";
   }
   cadastrar(foto: FotoComponent): Observable<Response> {
-    return this.http.post(this.url + "/v1/fotos", JSON.stringify(foto), {
-      headers: this.headers
-    });
+    if (foto._id) {
+      return this.http.put(
+        this.url + "/v1/fotos/" + foto._id,
+        JSON.stringify(foto),
+        {
+          headers: this.headers
+        }
+      );
+    } else {
+      return this.http.post(this.url + "/v1/fotos", JSON.stringify(foto), {
+        headers: this.headers
+      });
+    }
   }
 
   lista(): Observable<FotoComponent[]> {
@@ -27,5 +37,9 @@ export class FotoService {
 
   remover(id: string): Observable<Response> {
     return this.http.delete(this.url + "/v1/fotos/" + id);
+  }
+
+  recuperaPeloId(id: string): Observable<FotoComponent> {
+    return this.http.get(this.url + "/v1/fotos/" + id).map(res => res.json());
   }
 }

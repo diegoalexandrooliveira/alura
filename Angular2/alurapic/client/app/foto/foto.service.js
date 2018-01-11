@@ -19,15 +19,25 @@ var FotoService = (function () {
         this.url = "http://" + window.location.hostname + ":3000";
     }
     FotoService.prototype.cadastrar = function (foto) {
-        return this.http.post(this.url + "/v1/fotos", JSON.stringify(foto), {
-            headers: this.headers
-        });
+        if (foto._id) {
+            return this.http.put(this.url + "/v1/fotos/" + foto._id, JSON.stringify(foto), {
+                headers: this.headers
+            });
+        }
+        else {
+            return this.http.post(this.url + "/v1/fotos", JSON.stringify(foto), {
+                headers: this.headers
+            });
+        }
     };
     FotoService.prototype.lista = function () {
         return this.http.get(this.url + "/v1/fotos").map(function (res) { return res.json(); });
     };
     FotoService.prototype.remover = function (id) {
         return this.http.delete(this.url + "/v1/fotos/" + id);
+    };
+    FotoService.prototype.recuperaPeloId = function (id) {
+        return this.http.get(this.url + "/v1/fotos/" + id).map(function (res) { return res.json(); });
     };
     return FotoService;
 }());

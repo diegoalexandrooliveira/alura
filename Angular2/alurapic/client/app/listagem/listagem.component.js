@@ -14,6 +14,7 @@ var foto_service_1 = require("../foto/foto.service");
 var ListagemComponent = (function () {
     function ListagemComponent(service) {
         this.fotos = [];
+        this.mensagem = "";
         this.service = service;
         this.listar();
     }
@@ -21,12 +22,23 @@ var ListagemComponent = (function () {
         var _this = this;
         this.service.lista().subscribe(function (fotos) {
             _this.fotos = fotos;
-        }, function (erro) { return console.log(erro); });
+        }, function (erro) {
+            console.log("Erro ao listar as fotos. " + erro);
+            _this.mensagem = "Não foi possível listar as fotos.";
+        });
     };
     ListagemComponent.prototype.remover = function (foto) {
-        this.service
-            .remover(foto._id)
-            .subscribe(function () { return console.log("Removido com sucesso"); }, function (erro) { return console.log("Erro " + erro); });
+        var _this = this;
+        this.service.remover(foto._id).subscribe(function () {
+            var novasFotos = _this.fotos.slice(0);
+            novasFotos.splice(novasFotos.indexOf(foto), 1);
+            _this.fotos = novasFotos;
+            console.log("Removido com sucesso");
+            _this.mensagem = "Foto removida com sucesso.";
+        }, function (erro) {
+            console.log("Erro " + erro);
+            _this.mensagem = "Não foi possível remover a foto.";
+        });
     };
     return ListagemComponent;
 }());

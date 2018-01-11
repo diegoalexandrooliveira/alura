@@ -13,9 +13,12 @@ var core_1 = require("@angular/core");
 var foto_component_1 = require("../foto/foto.component");
 var forms_1 = require("@angular/forms");
 var foto_service_1 = require("../foto/foto.service");
+var router_1 = require("@angular/router");
 var CadastroComponent = (function () {
-    function CadastroComponent(formBuilder, service) {
+    function CadastroComponent(formBuilder, service, route, router) {
+        var _this = this;
         this.foto = new foto_component_1.FotoComponent();
+        this.mensagem = '';
         this.meuForm = formBuilder.group({
             titulo: [
                 "",
@@ -25,13 +28,29 @@ var CadastroComponent = (function () {
             descricao: [""]
         });
         this.service = service;
+        this.route = route;
+        this.router = router;
+        this.route.params.subscribe(function (params) {
+            var id = params["id"];
+            if (id) {
+                console.log(id);
+                _this.service
+                    .recuperaPeloId(id)
+                    .subscribe(function (foto) { return (_this.foto = foto); }, function (erro) { return console.log(erro); });
+            }
+        });
     }
     CadastroComponent.prototype.cadastrar = function (event) {
         var _this = this;
         event.preventDefault();
         this.service.cadastrar(this.foto).subscribe(function () {
             console.log("Foto incluida com sucesso.");
-            _this.foto = new foto_component_1.FotoComponent();
+            if (_this.foto._id) {
+                _this.router.navigate([""]);
+            }
+            else {
+                _this.foto = new foto_component_1.FotoComponent();
+            }
         }, function (erro) { return console.log("Erro ao incluir a foto. " + erro); });
     };
     return CadastroComponent;
@@ -42,7 +61,10 @@ CadastroComponent = __decorate([
         selector: "cadastro",
         templateUrl: "./cadastro.component.html"
     }),
-    __metadata("design:paramtypes", [forms_1.FormBuilder, foto_service_1.FotoService])
+    __metadata("design:paramtypes", [forms_1.FormBuilder,
+        foto_service_1.FotoService,
+        router_1.ActivatedRoute,
+        router_1.Router])
 ], CadastroComponent);
 exports.CadastroComponent = CadastroComponent;
 //# sourceMappingURL=cadastro.component.js.map
