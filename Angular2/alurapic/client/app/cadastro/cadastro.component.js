@@ -18,7 +18,7 @@ var CadastroComponent = (function () {
     function CadastroComponent(formBuilder, service, route, router) {
         var _this = this;
         this.foto = new foto_component_1.FotoComponent();
-        this.mensagem = '';
+        this.mensagem = "";
         this.meuForm = formBuilder.group({
             titulo: [
                 "",
@@ -43,13 +43,11 @@ var CadastroComponent = (function () {
     CadastroComponent.prototype.cadastrar = function (event) {
         var _this = this;
         event.preventDefault();
-        this.service.cadastrar(this.foto).subscribe(function () {
-            console.log("Foto incluida com sucesso.");
-            if (_this.foto._id) {
+        this.service.cadastrar(this.foto).subscribe(function (res) {
+            _this.mensagem = res.mensagem;
+            _this.foto = new foto_component_1.FotoComponent();
+            if (!res.inclusao) {
                 _this.router.navigate([""]);
-            }
-            else {
-                _this.foto = new foto_component_1.FotoComponent();
             }
         }, function (erro) { return console.log("Erro ao incluir a foto. " + erro); });
     };

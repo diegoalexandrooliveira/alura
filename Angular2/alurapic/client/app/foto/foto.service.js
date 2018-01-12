@@ -20,14 +20,18 @@ var FotoService = (function () {
     }
     FotoService.prototype.cadastrar = function (foto) {
         if (foto._id) {
-            return this.http.put(this.url + "/v1/fotos/" + foto._id, JSON.stringify(foto), {
+            return this.http
+                .put(this.url + "/v1/fotos/" + foto._id, JSON.stringify(foto), {
                 headers: this.headers
-            });
+            })
+                .map(function () { return new MensagemCadastro("Foto alterada com sucesso", false); });
         }
         else {
-            return this.http.post(this.url + "/v1/fotos", JSON.stringify(foto), {
+            return this.http
+                .post(this.url + "/v1/fotos", JSON.stringify(foto), {
                 headers: this.headers
-            });
+            })
+                .map(function () { return new MensagemCadastro("Foto incluida com sucesso", true); });
         }
     };
     FotoService.prototype.lista = function () {
@@ -46,4 +50,12 @@ FotoService = __decorate([
     __metadata("design:paramtypes", [http_1.Http])
 ], FotoService);
 exports.FotoService = FotoService;
+var MensagemCadastro = (function () {
+    function MensagemCadastro(mensagem, inclusao) {
+        this.mensagem = mensagem;
+        this.inclusao = inclusao;
+    }
+    return MensagemCadastro;
+}());
+exports.MensagemCadastro = MensagemCadastro;
 //# sourceMappingURL=foto.service.js.map

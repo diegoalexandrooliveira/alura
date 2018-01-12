@@ -15,7 +15,7 @@ export class CadastroComponent {
   service: FotoService;
   route: ActivatedRoute;
   router: Router;
-  mensagem: string = '';
+  mensagem: string = "";
 
   constructor(
     formBuilder: FormBuilder,
@@ -48,12 +48,11 @@ export class CadastroComponent {
   cadastrar(event: Event) {
     event.preventDefault();
     this.service.cadastrar(this.foto).subscribe(
-      () => {
-        console.log("Foto incluida com sucesso.");
-        if (this.foto._id) {
+      res => {
+        this.mensagem = res.mensagem;
+        this.foto = new FotoComponent();
+        if (!res.inclusao) {
           this.router.navigate([""]);
-        } else {
-          this.foto = new FotoComponent();
         }
       },
       erro => console.log("Erro ao incluir a foto. " + erro)

@@ -15,19 +15,19 @@ export class FotoService {
     this.headers.append("Content-Type", "application/json");
     this.url = "http://" + window.location.hostname + ":3000";
   }
-  cadastrar(foto: FotoComponent): Observable<Response> {
+  cadastrar(foto: FotoComponent): Observable<MensagemCadastro> {
     if (foto._id) {
-      return this.http.put(
-        this.url + "/v1/fotos/" + foto._id,
-        JSON.stringify(foto),
-        {
+      return this.http
+        .put(this.url + "/v1/fotos/" + foto._id, JSON.stringify(foto), {
           headers: this.headers
-        }
-      );
+        })
+        .map(() => new MensagemCadastro("Foto alterada com sucesso", false));
     } else {
-      return this.http.post(this.url + "/v1/fotos", JSON.stringify(foto), {
-        headers: this.headers
-      });
+      return this.http
+        .post(this.url + "/v1/fotos", JSON.stringify(foto), {
+          headers: this.headers
+        })
+        .map(() => new MensagemCadastro("Foto incluida com sucesso", true));
     }
   }
 
@@ -41,5 +41,14 @@ export class FotoService {
 
   recuperaPeloId(id: string): Observable<FotoComponent> {
     return this.http.get(this.url + "/v1/fotos/" + id).map(res => res.json());
+  }
+}
+
+export class MensagemCadastro {
+  mensagem: string;
+  inclusao: boolean;
+  constructor(mensagem: string, inclusao: boolean) {
+    this.mensagem = mensagem;
+    this.inclusao = inclusao;
   }
 }
