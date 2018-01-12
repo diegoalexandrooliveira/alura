@@ -31,12 +31,11 @@ export class ListagemComponent {
 
   remover(foto: FotoComponent) {
     this.service.remover(foto._id).subscribe(
-      () => {
+      res => {
         let novasFotos = this.fotos.slice(0);
         novasFotos.splice(novasFotos.indexOf(foto), 1);
         this.fotos = novasFotos;
-        console.log("Removido com sucesso");
-        this.mensagem = "Foto removida com sucesso.";
+        this.mensagem = res.mensagem;
       },
       erro => {
         console.log("Erro " + erro);

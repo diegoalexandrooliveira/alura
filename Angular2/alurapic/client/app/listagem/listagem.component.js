@@ -29,12 +29,11 @@ var ListagemComponent = (function () {
     };
     ListagemComponent.prototype.remover = function (foto) {
         var _this = this;
-        this.service.remover(foto._id).subscribe(function () {
+        this.service.remover(foto._id).subscribe(function (res) {
             var novasFotos = _this.fotos.slice(0);
             novasFotos.splice(novasFotos.indexOf(foto), 1);
             _this.fotos = novasFotos;
-            console.log("Removido com sucesso");
-            _this.mensagem = "Foto removida com sucesso.";
+            _this.mensagem = res.mensagem;
         }, function (erro) {
             console.log("Erro " + erro);
             _this.mensagem = "Não foi possível remover a foto.";

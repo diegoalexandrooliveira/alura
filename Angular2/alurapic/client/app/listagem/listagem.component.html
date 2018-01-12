@@ -23,7 +23,7 @@
                 <foto [url]="foto.url" [titulo]="foto.titulo"></foto>
             </a>
             <br>
-            <button class="btn btn-danger btn-block" (click)="remover(foto)">Remover</button>
+            <botao nome="Remover" estilo="btn-danger btn-block" (acao)="remover(foto)" confirmacao="true" mensagemConfirmacao="Deseja excluir a foto {{foto.titulo}}?"></botao>
         </painel>
     </div>
 </div>

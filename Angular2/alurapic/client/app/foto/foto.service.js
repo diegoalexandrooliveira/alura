@@ -38,7 +38,9 @@ var FotoService = (function () {
         return this.http.get(this.url + "/v1/fotos").map(function (res) { return res.json(); });
     };
     FotoService.prototype.remover = function (id) {
-        return this.http.delete(this.url + "/v1/fotos/" + id);
+        return this.http
+            .delete(this.url + "/v1/fotos/" + id)
+            .map(function () { return new MensagemCadastro("Foto excluída com sucesso.", undefined); });
     };
     FotoService.prototype.recuperaPeloId = function (id) {
         return this.http.get(this.url + "/v1/fotos/" + id).map(function (res) { return res.json(); });
@@ -51,10 +53,26 @@ FotoService = __decorate([
 ], FotoService);
 exports.FotoService = FotoService;
 var MensagemCadastro = (function () {
-    function MensagemCadastro(mensagem, inclusao) {
-        this.mensagem = mensagem;
-        this.inclusao = inclusao;
+    function MensagemCadastro(_mensagem, _inclusao) {
+        this._mensagem = _mensagem;
+        this._inclusao = _inclusao;
+        this._mensagem = _mensagem;
+        this._inclusao = _inclusao;
     }
+    Object.defineProperty(MensagemCadastro.prototype, "mensagem", {
+        get: function () {
+            return this._mensagem;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(MensagemCadastro.prototype, "inclusao", {
+        get: function () {
+            return this._inclusao;
+        },
+        enumerable: true,
+        configurable: true
+    });
     return MensagemCadastro;
 }());
 exports.MensagemCadastro = MensagemCadastro;

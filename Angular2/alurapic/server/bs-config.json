@@ -2,5 +2,6 @@
   "port": 8000,
   "files": ["../client/**/*.{html,css,js}"],
   "server": { "baseDir": "../client" },
-  "watchEvents": ["change", "add", "addDir", "unlinkDir", "unlink"]
+  "watchEvents": ["change", "add", "addDir", "unlinkDir", "unlink"],
+  "open": false
 }

@@ -35,8 +35,10 @@ export class FotoService {
     return this.http.get(this.url + "/v1/fotos").map(res => res.json());
   }
 
-  remover(id: string): Observable<Response> {
-    return this.http.delete(this.url + "/v1/fotos/" + id);
+  remover(id: string): Observable<MensagemCadastro> {
+    return this.http
+      .delete(this.url + "/v1/fotos/" + id)
+      .map(() => new MensagemCadastro("Foto excluída com sucesso.", undefined));
   }
 
   recuperaPeloId(id: string): Observable<FotoComponent> {
@@ -45,10 +47,16 @@ export class FotoService {
 }
 
 export class MensagemCadastro {
-  mensagem: string;
-  inclusao: boolean;
-  constructor(mensagem: string, inclusao: boolean) {
-    this.mensagem = mensagem;
-    this.inclusao = inclusao;
+  constructor(private _mensagem: string, private _inclusao: boolean) {
+    this._mensagem = _mensagem;
+    this._inclusao = _inclusao;
+  }
+
+  public get mensagem(): string {
+    return this._mensagem;
+  }
+
+  public get inclusao(): boolean {
+    return this._inclusao;
   }
 }
