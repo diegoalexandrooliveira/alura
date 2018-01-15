@@ -49,7 +49,10 @@ var CadastroComponent = (function () {
             if (!res.inclusao) {
                 _this.router.navigate([""]);
             }
-        }, function (erro) { return console.log("Erro ao incluir a foto. " + erro); });
+        }, function (erro) {
+            console.log("Erro ao incluir a foto. " + erro);
+            _this.mensagem = "Erro ao incluir a foto.";
+        });
     };
     return CadastroComponent;
 }());

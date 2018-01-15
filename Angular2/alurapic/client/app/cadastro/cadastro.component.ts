@@ -55,7 +55,10 @@ export class CadastroComponent {
           this.router.navigate([""]);
         }
       },
-      erro => console.log("Erro ao incluir a foto. " + erro)
+      erro => {
+        console.log("Erro ao incluir a foto. " + erro);
+        this.mensagem = "Erro ao incluir a foto.";
+      }
     );
   }
 }

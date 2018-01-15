@@ -27,13 +27,15 @@ var ListagemComponent = (function () {
             _this.mensagem = "Não foi possível listar as fotos.";
         });
     };
-    ListagemComponent.prototype.remover = function (foto) {
+    ListagemComponent.prototype.remover = function (foto, painel) {
         var _this = this;
         this.service.remover(foto._id).subscribe(function (res) {
-            var novasFotos = _this.fotos.slice(0);
-            novasFotos.splice(novasFotos.indexOf(foto), 1);
-            _this.fotos = novasFotos;
-            _this.mensagem = res.mensagem;
+            painel.fadeOut(function () {
+                var novasFotos = _this.fotos.slice(0);
+                novasFotos.splice(novasFotos.indexOf(foto), 1);
+                _this.fotos = novasFotos;
+                _this.mensagem = res.mensagem;
+            });
         }, function (erro) {
             console.log("Erro " + erro);
             _this.mensagem = "Não foi possível remover a foto.";
