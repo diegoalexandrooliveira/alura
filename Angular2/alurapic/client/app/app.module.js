@@ -18,6 +18,7 @@ require("rxjs/add/operator/map");
 var app_routes_1 = require("./app.routes");
 var forms_1 = require("@angular/forms");
 var botao_module_1 = require("./botao/botao.module");
+var modal_module_1 = require("./modal/modal.module");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -33,7 +34,8 @@ AppModule = __decorate([
             app_routes_1.routing,
             forms_1.FormsModule,
             forms_1.ReactiveFormsModule,
-            botao_module_1.BotaoModule
+            botao_module_1.BotaoModule,
+            modal_module_1.ModalModule
         ],
         declarations: [app_component_1.AppComponent, cadastro_component_1.CadastroComponent, listagem_component_1.ListagemComponent],
         bootstrap: [app_component_1.AppComponent]

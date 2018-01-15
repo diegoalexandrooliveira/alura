@@ -1,0 +1,1 @@
+var Aria=function(){function a(a){var b="true"===a.attr("aria-expanded");a.attr("aria-expanded",!b);var c=a.attr("aria-controls");$("#"+c).attr("aria-hidden",b)}return{expandingButton:a}}();

@@ -39,6 +39,9 @@ var CadastroComponent = (function () {
                     .subscribe(function (foto) { return (_this.foto = foto); }, function (erro) { return console.log(erro); });
             }
         });
+        $(document).ready(function () {
+            $("input").first().focus();
+        });
     }
     CadastroComponent.prototype.cadastrar = function (event) {
         var _this = this;

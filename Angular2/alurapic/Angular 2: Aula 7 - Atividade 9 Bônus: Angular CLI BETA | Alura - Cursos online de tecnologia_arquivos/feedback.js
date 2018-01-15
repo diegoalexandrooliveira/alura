@@ -1,0 +1,1 @@
+!function(a){function b(){var a=c();$(location).attr("href",a)}function c(){return"repetition"==d.data("task-type")?$(location).attr("href"):"/course/"+e+"/task/"+f+"/next"}$(".buttonFeedback").on("click",function(){var c=$(this).data("feedback");a.submitAnswer(b,c)});var d=$(".task"),e=d.data("course-code"),f=d.data("task-id")}(Task);

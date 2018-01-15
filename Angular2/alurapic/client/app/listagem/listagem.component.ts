@@ -16,6 +16,9 @@ export class ListagemComponent {
   constructor(service: FotoService) {
     this.service = service;
     this.listar();
+    $(document).ready(function () {
+      $("input").first().focus();
+    });
   }
 
   listar(): void {

@@ -11,7 +11,7 @@
                         <a [routerLink]="['/cadastro']" class="btn btn-primary">
                             Nova foto</a>
                     </span>
-                    <input #textoProcurado (keyup)="0" autofocus type="text" class="form-control" placeholder="filtrar">
+                    <input #textoProcurado (keyup)="0" type="text" class="form-control" placeholder="filtrar">
                 </div>
             </form>
         </div>
@@ -23,7 +23,8 @@
                 <foto [url]="foto.url" [titulo]="foto.titulo"></foto>
             </a>
             <br>
-            <botao nome="Remover" estilo="btn-danger btn-block" (acao)="remover(foto, painel)" confirmacao="true" mensagemConfirmacao="Deseja excluir a foto {{foto.titulo}}?"></botao>
+            <botao nome="Remover" estilo="btn-danger btn-block" (acao)="modal.show()" [confirmacao]="false"></botao>
+            <modal #modal frase="Tem certeza que deseja remover a foto {{foto.titulo}}?" (confirma)="remover(foto, painel)"></modal>
         </painel>
     </div>
 </div>

@@ -17,6 +17,9 @@ var ListagemComponent = (function () {
         this.mensagem = "";
         this.service = service;
         this.listar();
+        $(document).ready(function () {
+            $("input").first().focus();
+        });
     }
     ListagemComponent.prototype.listar = function () {
         var _this = this;

@@ -43,6 +43,9 @@ export class CadastroComponent {
           .subscribe(foto => (this.foto = foto), erro => console.log(erro));
       }
     });
+    $(document).ready(function () {
+      $("input").first().focus();
+    });
   }
 
   cadastrar(event: Event) {
