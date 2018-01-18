@@ -15,6 +15,7 @@
             <td>titulo</td>
             <td>descricao</td>
             <td>preco</td>
+            <td>remover</td>
         </tr>
         <tr>
             <% for(var i=0;i < lista.length;i++) { %>
@@ -31,6 +32,12 @@
                     </td>
                     <td>
                         <%=lista[i].preco%>
+                    </td>
+                    <td>
+                        <!-- <form method="DELETE" action="/produtos/<%=lista[i].id%>">
+                            <input type="submit" value="Remover" />
+                        </form> -->
+                        <!-- <button onclick=<% $.ajax({ url: '/produtos/'+ lista[i].id, type: 'DELETE', success: function(result) { } })%>>Remover</button> -->
                     </td>
                 </tr>
                 <% } %>
