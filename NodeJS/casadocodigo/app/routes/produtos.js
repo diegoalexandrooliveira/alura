@@ -3,9 +3,13 @@ module.exports = app => {
     let conexao = app.infra.connectionFactory();
     let produtosDAO = new app.infra.ProdutosDAO(conexao);
     produtosDAO.lista((erro, resultados) => {
-      res.render("produtos/lista", {
-        lista: resultados
+      res.format({
+        html: () => res.render("produtos/lista", {
+          lista: resultados
+        }),
+        json: () => res.json(resultados)
       });
+
     });
     conexao.end();
   });
@@ -16,9 +20,12 @@ module.exports = app => {
 
   app.post("/produtos", (req, res) => {
     let produto = req.body;
+    console.log(produto);
+
     let conexao = app.infra.connectionFactory();
     let produtosDAO = new app.infra.ProdutosDAO(conexao);
     produtosDAO.inserir(produto, erro => {
+      console.log(erro);
       res.redirect("/produtos");
     });
     conexao.end();
