@@ -2,6 +2,7 @@ module.exports = app => {
   app.get("/produtos", (req, res) => {
     let conexao = app.infra.connectionFactory();
     let produtosDAO = new app.infra.ProdutosDAO(conexao);
+    
     produtosDAO.lista((erro, resultados) => {
       res.format({
         html: () => res.render("produtos/lista", {
