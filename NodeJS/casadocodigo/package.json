@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "set NODE_ENV=&& nodemon app",
-    "test": "set NODE_ENV=test&& mocha"
+    "start_w": "set NODE_ENV=&& nodemon app",
+    "start_l": "NODE_ENV= nodemon app",
+    "test_w": "set NODE_ENV=test&& mocha",
+    "test_l": "NODE_ENV=test mocha"
   },
   "author": "",
   "license": "ISC",
@@ -17,6 +19,7 @@
     "express-validator": "^4.3.0",
     "js2xmlparser": "^3.0.0",
     "mysql": "^2.15.0",
+    "socket.io": "^2.0.4",
     "xml": "^1.0.1"
   },
   "devDependencies": {

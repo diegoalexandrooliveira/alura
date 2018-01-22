@@ -1,7 +1,6 @@
 let mysql = require("mysql");
 
 function createDBConnection() {
-  console.log(process.env.NODE_ENV);
 
   if (!process.env.NODE_ENV) {
     return mysql.createConnection({

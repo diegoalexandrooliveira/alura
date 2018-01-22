@@ -33,8 +33,6 @@ module.exports = app => {
     req.assert("preco", "Preço com formato inválido").isFloat();
     let erros = req.validationErrors();
     if (erros) {
-      console.log(erros);
-
       res.format({
         html: () => {
           res.status(400).render("produtos/form", {

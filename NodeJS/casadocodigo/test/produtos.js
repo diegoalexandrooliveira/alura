@@ -25,6 +25,18 @@ let express = require("../config/express")();
 let request = require("supertest")(express);
 
 describe('#ProdutosController', () => {
+
+    beforeEach(done => {
+        var conexao = express.infra.connectionFactory();
+        conexao.query("delete from produtos", (erro, resultado) => {
+            if (erro) {
+                console.log(erro);
+            } else {
+                done();
+            }
+        });
+    });
+
     it('#listagem json', (done) => {
         request.get("/produtos")
             .set("Accept", "application/json")
