@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon app",
-    "test": "mocha"
+    "start": "set NODE_ENV=&& nodemon app",
+    "test": "set NODE_ENV=test&& mocha"
   },
   "author": "",
   "license": "ISC",

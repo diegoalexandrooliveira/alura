@@ -1,16 +1,19 @@
 module.exports = app => {
-  app.get("/produtos", (req, res) => {
+  app.get("/produtos", (req, res, next) => {
     let conexao = app.infra.connectionFactory();
     let produtosDAO = new app.infra.ProdutosDAO(conexao);
-    
+
     produtosDAO.lista((erro, resultados) => {
+      if (erro) {
+        return next(erro);
+      }
       res.format({
-        html: () => res.render("produtos/lista", {
-          lista: resultados
-        }),
+        html: () =>
+          res.render("produtos/lista", {
+            lista: resultados
+          }),
         json: () => res.json(resultados)
       });
-
     });
     conexao.end();
   });
@@ -22,19 +25,19 @@ module.exports = app => {
     });
   });
 
-  app.post("/produtos", (req, res) => {
+  app.post("/produtos", (req, res, next) => {
     let produto = req.body;
 
     // inicio express-validator
-    req.assert('titulo', 'Titulo é obrigatório').notEmpty();
-    req.assert('preco', 'Preço com formato inválido').isFloat();
+    req.assert("titulo", "Titulo é obrigatório").notEmpty();
+    req.assert("preco", "Preço com formato inválido").isFloat();
     let erros = req.validationErrors();
     if (erros) {
       console.log(erros);
 
       res.format({
         html: () => {
-          res.status(400).render('produtos/form', {
+          res.status(400).render("produtos/form", {
             errosValidacao: erros,
             produto: produto
           });
@@ -51,7 +54,9 @@ module.exports = app => {
     let conexao = app.infra.connectionFactory();
     let produtosDAO = new app.infra.ProdutosDAO(conexao);
     produtosDAO.inserir(produto, erro => {
-      console.log(erro);
+      if (erro) {
+        return next(erro);
+      }
       res.redirect("/produtos");
     });
     conexao.end();
