@@ -8,7 +8,7 @@ function createDBConnection() {
       port: 3306,
       user: "root",
       password: "root",
-      database: "casadocodigo_nodejs"
+      database: "casadocodigo_nodej1s"
     });
   } else if (process.env.NODE_ENV == "test") {
     return mysql.createConnection({
