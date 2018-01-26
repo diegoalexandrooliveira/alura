@@ -9,7 +9,7 @@ module.exports = (app) => {
         let pagamento = request.body;
         console.log(pagamento);
         pagamento.status = "CRIADO";
-        pagamento.data = new Date();
+        pagamento.data = new Date;
         response.send(pagamento);
     });
 }
