@@ -7,9 +7,19 @@ module.exports = (app) => {
 
     app.post("/pagamentos/pagamento", (request, response) => {
         let pagamento = request.body;
-        console.log(pagamento);
         pagamento.status = "CRIADO";
         pagamento.data = new Date;
-        response.send(pagamento);
+
+        let conexao = app.persistencia.connectionFactory();
+        let pagamentoDAO = new app.persistencia.PagamentoDAO(conexao);
+
+        pagamentoDAO.inserir(pagamento, (erro, resultado) => {
+            if (erro) {
+                response.status(500).send(erro);
+            } else {
+                response.json(pagamento);
+            }
+        });
+        conexao.end();
     });
 }

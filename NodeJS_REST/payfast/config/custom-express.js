@@ -6,6 +6,7 @@ module.exports = () => {
     let app = express();
     app.use(bodyParser.json());
     consign().include("controllers")
+        .then("persistencia")
         .into(app);
     return app;
 };
