@@ -6,6 +6,18 @@ module.exports = (app) => {
 
 
     app.post("/pagamentos/pagamento", (request, response) => {
+
+        request.assert("forma_de_pagamento", "Forma de pagamento é obrigatória").notEmpty();
+        request.assert("valor", "Valor é obrigatório e deve ser um número").notEmpty().isFloat();
+
+        let errosValidacao = request.validationErrors();
+
+        if (errosValidacao) {
+            console.log(errosValidacao);
+            response.status(400).send(errosValidacao);
+            return;
+        }
+
         let pagamento = request.body;
         pagamento.status = "CRIADO";
         pagamento.data = new Date;
@@ -15,9 +27,10 @@ module.exports = (app) => {
 
         pagamentoDAO.inserir(pagamento, (erro, resultado) => {
             if (erro) {
-                response.status(500).send(erro);
+                response.status(400).send(erro);
             } else {
-                response.json(pagamento);
+                response.location("/pagamentos/pagamento/" + resultado.insertId);
+                response.status(201).json(pagamento);
             }
         });
         conexao.end();
