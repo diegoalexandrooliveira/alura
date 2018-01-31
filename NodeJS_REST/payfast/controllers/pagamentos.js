@@ -73,37 +73,39 @@ module.exports = app => {
     pagamentoDAO.inserir(pagamento, (erro, resultado) => {
       if (erro) {
         response.status(400).send(erro);
-      } else {
-        pagamento.id = resultado.insertId;
-        if (pagamento.forma_de_pagamento == "cartao") {
-          let cartao = request.body["cartao"];
+        return;
+      }
+      pagamento.id = resultado.insertId;
+      if (pagamento.forma_de_pagamento == "cartao") {
+        let cartao = request.body["cartao"];
 
-          let clienteCartoes = new app.servicos.clienteCartoes();
-          clienteCartoes.autoriza(cartao, (erroCartao, req, res, retorno) => {
-            console.log(retorno);
-            response.status(201).send(retorno);
-          });
-        } else {
-          response.location("/pagamentos/pagamento/" + pagamento.id);
-          let resposta = {
-            dados_do_pagamento: pagamento,
-            links: [
-              {
-                href:
-                  "http://localhost:3000/pagamentos/pagamento/" + pagamento.id,
-                rel: "confirmar",
-                method: "PUT"
-              },
-              {
-                href:
-                  "http://localhost:3000/pagamentos/pagamento/" + pagamento.id,
-                rel: "cancelar",
-                method: "DELETE"
-              }
-            ]
-          };
-          response.status(201).json(resposta);
-        }
+        let clienteCartoes = new app.servicos.clienteCartoes();
+        clienteCartoes.autoriza(cartao, (erroCartao, req, res, retorno) => {
+          if (erroCartao) {
+            console.log(erroCartao);
+            response.status(400).send(erroCartao);
+            return;
+          }
+          console.log(retorno);
+          response.status(201).send(retorno);
+        });
+      } else {
+        response.location("/pagamentos/pagamento/" + pagamento.id);
+        let resposta = {
+          dados_do_pagamento: pagamento,
+          links: [{
+              href: "http://localhost:3000/pagamentos/pagamento/" + pagamento.id,
+              rel: "confirmar",
+              method: "PUT"
+            },
+            {
+              href: "http://localhost:3000/pagamentos/pagamento/" + pagamento.id,
+              rel: "cancelar",
+              method: "DELETE"
+            }
+          ]
+        };
+        response.status(201).json(resposta);
       }
     });
     conexao.end();
