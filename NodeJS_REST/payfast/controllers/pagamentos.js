@@ -1,18 +1,32 @@
 module.exports = app => {
   app.get("/pagamentos/pagamento/:id", (request, response) => {
     let id = request.params.id;
-    let conexao = app.persistencia.connectionFactory();
-    let pagamentoDAO = new app.persistencia.PagamentoDAO(conexao);
 
-    pagamentoDAO.buscaPorId(id, (erro, resultado) => {
-      if (erro) {
-        console.log(erro);
-        response.status(500).send(erro);
+    let memcachedClient = app.servicos.memcachedClient;
+
+    memcachedClient.get("pagamento-" + id, (erro, retorno) => {
+      if (erro || !retorno) {
+        console.log("Miss - chave não encontrada");
+        let conexao = app.persistencia.connectionFactory();
+        let pagamentoDAO = new app.persistencia.PagamentoDAO(conexao);
+
+        pagamentoDAO.buscaPorId(id, (erro, resultado) => {
+          if (erro) {
+            console.log(erro);
+            response.status(500).send(erro);
+            return;
+          }
+          response.json(resultado);
+        });
+        conexao.end();
+        return;
+      } else {
+        console.log("Hit - valor encontrado: " + JSON.stringify(retorno));
+        response.json(retorno);
         return;
       }
-      response.json(resultado);
     });
-    conexao.end();
+
   });
 
   app.delete("/pagamentos/pagamento/:id", (request, response) => {
@@ -87,6 +101,17 @@ module.exports = app => {
         return;
       }
       pagamento.id = resultado.insertId;
+
+      let memcachedClient = app.servicos.memcachedClient;
+
+      memcachedClient.set("pagamento-" + pagamento.id, pagamento, 60, (erroMemCached) => {
+        if (erroMemCached) {
+          console.log(erroMemCached);
+        } else {
+          console.log("Chave adicionada ao cache.");
+        }
+      });
+
       if (pagamento.forma_de_pagamento == "cartao") {
         let cartao = request.body["cartao"];
 
@@ -104,16 +129,13 @@ module.exports = app => {
         response.location("/pagamentos/pagamento/" + pagamento.id);
         let resposta = {
           dados_do_pagamento: pagamento,
-          links: [
-            {
-              href:
-                "http://localhost:3000/pagamentos/pagamento/" + pagamento.id,
+          links: [{
+              href: "http://localhost:3000/pagamentos/pagamento/" + pagamento.id,
               rel: "confirmar",
               method: "PUT"
             },
             {
-              href:
-                "http://localhost:3000/pagamentos/pagamento/" + pagamento.id,
+              href: "http://localhost:3000/pagamentos/pagamento/" + pagamento.id,
               rel: "cancelar",
               method: "DELETE"
             }
