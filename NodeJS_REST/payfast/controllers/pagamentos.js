@@ -1,7 +1,18 @@
 module.exports = app => {
-  app.get("/pagamentos", (request, response) => {
-    console.log("Funcionou");
-    response.send("Funcionou");
+  app.get("/pagamentos/pagamento/:id", (request, response) => {
+    let id = request.params.id;
+    let conexao = app.persistencia.connectionFactory();
+    let pagamentoDAO = new app.persistencia.PagamentoDAO(conexao);
+
+    pagamentoDAO.buscaPorId(id, (erro, resultado) => {
+      if (erro) {
+        console.log(erro);
+        response.status(500).send(erro);
+        return;
+      }
+      response.json(resultado);
+    });
+    conexao.end();
   });
 
   app.delete("/pagamentos/pagamento/:id", (request, response) => {
@@ -93,13 +104,16 @@ module.exports = app => {
         response.location("/pagamentos/pagamento/" + pagamento.id);
         let resposta = {
           dados_do_pagamento: pagamento,
-          links: [{
-              href: "http://localhost:3000/pagamentos/pagamento/" + pagamento.id,
+          links: [
+            {
+              href:
+                "http://localhost:3000/pagamentos/pagamento/" + pagamento.id,
               rel: "confirmar",
               method: "PUT"
             },
             {
-              href: "http://localhost:3000/pagamentos/pagamento/" + pagamento.id,
+              href:
+                "http://localhost:3000/pagamentos/pagamento/" + pagamento.id,
               rel: "cancelar",
               method: "DELETE"
             }
