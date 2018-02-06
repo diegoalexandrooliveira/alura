@@ -1,7 +1,5 @@
 let memcached = require("memcached");
 
-
-
 // client.set("pagamento-11", {
 //   id: 11,
 //   pagamento: "teste"
@@ -23,11 +21,14 @@ let memcached = require("memcached");
 // });
 
 function memcachedClient() {
-  let client = new memcached("localhost:11211", {
-    retries: 10,
-    retry: 10000,
-    remove: true
-  });
+  let client = new memcached("localhost:11211");
+
+  // let client = new memcached("localhost:11211", {
+  //   retries: 10,
+  //   retry: 10000,
+  //   remove: true,
+  //   timeout: 1000
+  // });
 
   return client;
 }

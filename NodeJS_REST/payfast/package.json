@@ -17,7 +17,8 @@
     "memcached": "^2.2.2",
     "mysql": "^2.15.0",
     "restify-clients": "^1.5.2",
-    "soap": "^0.23.0"
+    "soap": "^0.23.0",
+    "winston": "^2.4.0"
   },
   "devDependencies": {
     "nodemon": "^1.14.11"

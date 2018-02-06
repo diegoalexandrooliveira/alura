@@ -1,6 +1,10 @@
+let logger = require("../servicos/logger");
+
 module.exports = app => {
   app.get("/pagamentos/pagamento/:id", (request, response) => {
     let id = request.params.id;
+
+    logger.info("Consultando o pagamento " + id);
 
     let memcachedClient = app.servicos.memcachedClient;
 
@@ -26,7 +30,6 @@ module.exports = app => {
         return;
       }
     });
-
   });
 
   app.delete("/pagamentos/pagamento/:id", (request, response) => {
@@ -104,13 +107,18 @@ module.exports = app => {
 
       let memcachedClient = app.servicos.memcachedClient;
 
-      memcachedClient.set("pagamento-" + pagamento.id, pagamento, 60, (erroMemCached) => {
-        if (erroMemCached) {
-          console.log(erroMemCached);
-        } else {
-          console.log("Chave adicionada ao cache.");
+      memcachedClient.set(
+        "pagamento-" + pagamento.id,
+        pagamento,
+        60,
+        erroMemCached => {
+          if (erroMemCached) {
+            console.log(erroMemCached);
+          } else {
+            console.log("Chave adicionada ao cache.");
+          }
         }
-      });
+      );
 
       if (pagamento.forma_de_pagamento == "cartao") {
         let cartao = request.body["cartao"];
@@ -129,13 +137,16 @@ module.exports = app => {
         response.location("/pagamentos/pagamento/" + pagamento.id);
         let resposta = {
           dados_do_pagamento: pagamento,
-          links: [{
-              href: "http://localhost:3000/pagamentos/pagamento/" + pagamento.id,
+          links: [
+            {
+              href:
+                "http://localhost:3000/pagamentos/pagamento/" + pagamento.id,
               rel: "confirmar",
               method: "PUT"
             },
             {
-              href: "http://localhost:3000/pagamentos/pagamento/" + pagamento.id,
+              href:
+                "http://localhost:3000/pagamentos/pagamento/" + pagamento.id,
               rel: "cancelar",
               method: "DELETE"
             }
